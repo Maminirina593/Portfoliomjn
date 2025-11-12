@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maminirina Jean Noel - Portfolio</title>
+
+    <!-- Font Awesome -->
+     <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Modules -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/education.css">
+    <link rel="stylesheet" href="css/competence.css">
+    <link rel="stylesheet" href="css/projets.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body class="dark" data-lang="fr">
+
+<!-- Header -->
+<header>
+    <button id="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+    <select id="lang-select" aria-label="Langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+    </select>
+</header>
+
+    <!-- Main -->
+    <main>
+
+        <!-- Home -->
+<section id="home">
+    <div class="home-container">
+        <!-- Texte à gauche -->
+        <div class="home-text">
+            <h2 class="greeting-text"></h2>
+            <h1 class="static-title">Développeur Fullstack</h1>
+            <p class="description-text" data-key="home.description">
+                Développeur Fullstack passionné par les nouvelles technologies et l’innovation.
+                J’aime concevoir des applications web modernes, intuitives et performantes.
+                Curieux, créatif et rigoureux, je cherche toujours à apprendre et à m’améliorer.
+                Mon objectif : transformer les idées en solutions digitales concrètes et efficaces.
+            </p>
+            
+            <div class="buttons">
+                <a href="#contact" class="btn" data-key="home.contactBtn">Me Contacter</a>
+                <a href="#projects" class="btn" data-key="home.projectsBtn">Voir mes Projets</a>
+            </div>
+        </div>
+
+        <!-- Image à droite -->
+        <div class="home-image">
+            <div class="profile-container">
+                <img src="images/profile.png" alt="Profile" class="profile-img">
+                <div class="tech-orbit">
+                    <i class="fab fa-js"></i>
+                    <i class="fab fa-react"></i>
+                    <i class="fab fa-node-js"></i>
+                    <i class="fab fa-php"></i>
+                    <i class="fab fa-python"></i>
+                    <i class="fab fa-java"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about">
+    <div class="about-container">
+
+        <!-- CARD 1 : À Propos -->
+        <div class="about-card">
+            <div class="about-row">
+                <div class="about-image square">
+                    <img src="images/code.jpg" alt="Développeur" class="img-fluid">
+                    <div class="image-glow"></div>
+                </div>
+                <div class="about-content">
+                    <h2 data-key="about.title">À Propos de Moi</h2>
+                    <p data-key="about.text1" class="experience-text">
+                        Basé à Madagascar, je suis diplômé en informatique et développeur fullstack passionné par l’innovation et les technologies du web.
+                        Je conçois et développe des applications web modernes, performantes et sécurisées, en respectant les bonnes pratiques de développement et les standards du web.
+                        Ma démarche repose sur la qualité du code, la clarté de l’architecture et l’optimisation continue des performances.
+                        Curieux et rigoureux, je veille à maintenir mes compétences à jour afin de proposer des solutions adaptées aux besoins des utilisateurs et des organisations.
+                    </p>
+                    
+
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2 : Expérience Professionnelle -->
+        <div class="about-card">
+            <div class="about-row">
+                <div class="about-content">
+                    <h3>Expérience Professionnelle</h3>
+                    <p data-key="about.text2" class="experience-text">
+                        De janvier 2025 à mai 2025, j’ai effectué un stage en tant que développeur web à la Direction Générale des Impôts (SSIF).
+                        J’y ai développé une application web dédiée à la création et au suivi des projets informatiques, en utilisant Symfony, Bootstrap et PostgreSQL.
+                        Cette expérience m’a permis de renforcer mes compétences en développement fullstack et de mieux comprendre les besoins réels d’un environnement professionnel.
+                    </p>
+                </div>
+
+                <div class="about-image round">
+                    <img src="images/dev.jpg" alt="Code" class="img-fluid">
+                    <div class="image-glow"></div>
+                    <div class="tech-ring">
+                        <i class="fab fa-react"></i>
+                        <i class="fab fa-php"></i>
+                        <i class="fab fa-node-js"></i>
+                        <i class="fab fa-python"></i>
+                        <i class="fab fa-java"></i>
+                        <i class="fab fa-vuejs"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bouton CV placé en dehors des cartes -->
+    <div class="cv-download">
+        <a href="cv/cv.pdf" download class="btn-cv">
+            <i class="fas fa-file-pdf"></i>
+            Télécharger mon CV
+        </a>
+    </div>
+</section>
+
+
+<!-- Education -->
+<section id="education">
+    <h2 data-key="education.title">Études & Certificats</h2>
+
+    <div class="education-container">
+        <!-- Colonne Gauche : Études -->
+        <div class="education-column">
+            <h3><i class="fas fa-graduation-cap"></i> Formations Académiques</h3>
+            <div class="education-grid">
+
+                <!-- Master -->
+                <div class="education-card master">
+                    <div class="edu-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="edu-content">
+                        <h4>Master 1 en Génie Logiciel</h4>
+                        <p class="edu-period">2025 – En cours</p>
+                        <p class="edu-school">IS-INFO – Ampasamadinika</p>
+                        <p class="edu-desc">
+                            Renforcement des compétences en développement logiciel moderne, 
+                            incluant l’intelligence artificielle, le mobile, la gestion agile de projets, 
+                            la virtualisation et l’analyse de données pour une meilleure prise de décision.
+                        </p>
+                        
+                        <div class="edu-tags">
+                            <span>Intelligence Artificielle</span>
+                            <span>Application Mobile</span>
+                            <span>Gestion de Projet Agile</span>
+                            <span>Virtualisation</span>
+                            <span>Data Analyste</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Licence -->
+                <div class="education-card license">
+                    <div class="edu-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="edu-content">
+                        <h4>Licence en Développement d'Applications</h4>
+                        <p class="edu-period">2022 – 2025</p>
+                        <p class="edu-school">IS-INFO – Ampasamadinika</p>
+                        <p class="edu-desc">
+                            Formation complète en développement logiciel : Java, C++, C, PHP,JS, frameworks modernes, 
+                            bases de données relationnelles, développement web fullstack .
+                        </p>
+                        <div class="edu-tags">
+                            <span>Programmation orientée objet</span>
+                            <span>Bases de données</span>
+                            <span>Développement web fullstack</span>
+                            <span>Architecture multi-tiers</span>
+                            <span>Algorithmique</span>
+                            <span>Conception relationnelle</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Colonne Droite : Certificats -->
+        <div class="education-column">
+            <h3><i class="fas fa-certificate"></i> Certificats & Formations</h3>
+            <div class="education-grid">
+
+                <!-- Certificat Fullstack -->
+                <div class="education-card cert">
+                    <div class="edu-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="edu-content">
+                        <h4>Certificat Développement web Fullstack</h4>
+                        <p class="edu-period">Septembre 2025</p>
+                        <p class="edu-school">Orange Digital Center</p>
+                        <p class="edu-desc">Node.js, Express, React, MongoDB </p>
+                    </div>
+                </div>
+
+                <!-- Certificat Anglais -->
+                <div class="education-card cert">
+                    <div class="edu-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="edu-content">
+                        <h4>Certificat Cours d'Anglais Parlé</h4>
+                        <p class="edu-period">2022</p>
+                        <p class="edu-school">FEC Ivato – Antananarivo</p>
+                        <p class="edu-desc">Communication professionnelle, expression orale, vocabulaire technique</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+       <!-- Skills – Aquarelle Style (comme l'image) -->
+<section id="skills">
+    <div class="skills-container">
+
+        <!-- Titre -->
+        <h2 data-key="skills.title">Mes Compétences</h2>
+
+        <!-- Deux colonnes principales -->
+        <div class="skills-wrapper">
+
+            <!-- COLONNE 1 : Développement -->
+            <div class="skills-column left">
+                <h3 class="column-title">Développement</h3>
+
+                <!-- Langages de Programmation -->
+                <div class="skill-group">
+                    <div class="group-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>Langages de Programmation</h4>
+                    <div class="skill-tags">
+                        <span><i class="fab fa-php"></i> PHP</span>
+                        <span><i class="fab fa-python"></i> Python</span>
+                        <span><i class="fab fa-java"></i> Java</span>
+                        <span><i class="fab fa-js"></i> JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Front-End -->
+                <div class="skill-group">
+                    <div class="group-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>Front-End</h4>
+                    <div class="skill-tags">
+                        <span><i class="fab fa-react"></i> React</span>
+                        <span><i class="fab fa-vuejs"></i> Vue.js</span>
+                        <span><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                        <span><i class="fas fa-wind"></i> Tailwind</span>
+                    </div>
+                </div>
+
+                <!-- Back-End -->
+                <div class="skill-group">
+                    <div class="group-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h4>Back-End</h4>
+                    <div class="skill-tags">
+                        <span><i class="fab fa-python"></i> Django</span>
+                        <span><i class="fab fa-symfony"></i> Symfony</span>
+                        <span><i class="fab fa-node-js"></i> Node.js</span>
+                        <span><i class="fas fa-server"></i> Express</span>
+                        <span><i class="fab fa-laravel"></i> Laravel</span>
+                    </div>
+                </div>
+                <!-- Base de données -->
+                <div class="skill-group">
+                    <div class="group-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Base de données</h4>
+                    <div class="skill-tags">
+                        <span><i class="fas fa-database"></i> MySQL</span>
+                        <span><i class="fas fa-database"></i>PostgreSQL</span>
+                        <span><i class="fas fa-database"></i> MongoDB</span>
+                       
+                    </div>
+                </div>
+
+                <!-- Web Tech -->
+                <div class="skill-group">
+                    <div class="group-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h4>Web Tech</h4>
+                    <div class="skill-tags">
+                        <span><i class="fab fa-html5"></i> HTML5</span>
+                        <span><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span><i class="fab fa-sass"></i> Sass</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COLONNE 2 : Autres Compétences -->
+            <div class="skills-column right">
+                <h3 class="column-title">Autres Compétences</h3>
+
+                <!-- Outils -->
+                <div class="skill-group">
+                    <div class="group-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4>Outils</h4>
+                    <div class="skill-tags">
+                        <span><i class="fab fa-git-alt"></i> Git</span>
+                        <span><i class="fab fa-github"></i> GitHub</span>
+                        <span><i class="fas fa-code"></i> VS Code</span>
+                    </div>
+                </div>
+
+                <!-- Microsoft Office -->
+                <div class="skill-group">
+                    <div class="group-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h4>Microsoft Office</h4>
+                    <div class="skill-tags">
+                        <span><i class="fas fa-file-word"></i> Word</span>
+                        <span><i class="fas fa-file-excel"></i> Excel</span>
+                        <span><i class="fas fa-file-powerpoint"></i> PowerPoint</span>
+                        <span><i class="fas fa-database"></i> Access</span>
+                    </div>
+                </div>
+
+                <!-- Systèmes d'exploitation -->
+                <div class="skill-group">
+                    <div class="group-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h4>Systèmes d'exploitation</h4>
+                    <div class="skill-tags">
+                        <span><i class="fab fa-windows"></i> Windows</span>
+                        <span><i class="fab fa-linux"></i> Linux</span>
+                    </div>
+                </div>
+
+                <!-- Logiciels Création Graphique -->
+                <div class="skill-group">
+                    <div class="group-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h4>Logiciels Création Graphique</h4>
+                    <span><i class="fas fa-image"></i> Photoshop</span>
+                    <span><i class="fas fa-vector-square"></i> Illustrator</span>
+                    <span><i class="fas fa-video"></i> Premiere Pro</span>
+                    <span><i class="fas fa-file-alt"></i> InDesign</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Soft Skills (en bas) -->
+        <div class="soft-skills">
+            <h3>Soft Skills</h3>
+            <div class="soft-tags">
+                <span><i class="fas fa-users"></i> Travail d'équipe</span>
+                <span><i class="fas fa-clock"></i> Gestion du temps</span>
+                <span><i class="fas fa-lightbulb"></i> Résolution de problèmes</span>
+                <span><i class="fas fa-sync"></i> Adaptabilité</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Projects Section – Moderne, Centré, Toggle Voir plus/moins -->
+<section id="projects">
+    <div class="projects-container">
+       
+        <!-- Titre moderne centré -->
+        <div class="section-header">
+            <h2 data-key="projects.title">Mes Projets</h2>
+            <div class="title-underline"></div>
+        </div>
+
+        <!-- Grid des projets -->
+        <div class="projects-grid" id="projects-grid">
+            <!-- Projet 1 -->
+            <div class="project-card">
+                <img src="images/gstock.png" alt="Gestion Stock" class="project-img">
+                <div class="project-content">
+                    <h3>Gestion Stock</h3>
+                    <div class="project-tech">
+                        <span><i class="fab fa-php"></i> PHP</span>
+                        <span><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                        <span><i class="fas fa-database"></i> MySQL</span>
+                    </div>
+                    <p>Application complète de gestion de stock avec suivi des inventaires, alertes et rapports dynamiques.</p>
+                    <div class="project-links">
+                        <a href="video/gstock.mp4" target="_blank" class="demo-link"><i class="fas fa-video"></i> Démo</a>
+                        <a href="https://github.com/maminirina593/gestionstock" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-card">
+                <img src="images/gestionsuivi.png" alt="Gestion suivi projets" class="project-img">
+                <div class="project-content">
+                    <h3>Gestion Suivi des Projets</h3>
+                    <div class="project-tech">
+                        <span><i class="fab fa-symfony"></i> Symfony</span>
+                        <span><i class="fas fa-leaf"></i> Twig</span>
+                        <span><i class="fas fa-database"></i> PostgreSQL</span>
+                    </div>
+                    <p>Plateforme de suivi de projets IT avec Gantt, tâches, notifications et rapports avancés.</p>
+                    <div class="project-links">
+                        <a href="video/gsuivi.mp4" target="_blank" class="demo-link"><i class="fas fa-video"></i> Démo</a>
+                        <a href="https://github.com/maminirina593/gsuivisymfony" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+            <div class="project-card">
+                <img src="images/gestionstock.jpg" alt="Gestion Stock Django" class="project-img">
+                <div class="project-content">
+                    <h3>Gestion Stock (Django)</h3>
+                    <div class="project-tech">
+                        <span><i class="fab fa-python"></i> Django</span>
+                        <span><i class="fab fa-react"></i> React</span>
+                        <span><i class="fas fa-database"></i> MySQL</span>
+                    </div>
+                    <p>Version moderne avec API REST, React frontend et dashboard analytique.</p>
+                    <div class="project-links">
+                        <a href="video/gesionstock.mp4" target="_blank" class="demo-link"><i class="fas fa-video"></i> Démo</a>
+                        <a href="https://github.com/maminirina593/gstockdjango" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 4 (caché) -->
+            <div class="project-card hidden">
+                <img src="images/tic tac toe.jpg" alt="Tic Tac Toe" class="project-img">
+                <div class="project-content">
+                    <h3>Tic Tac Toe Moderne</h3>
+                    <div class="project-tech">
+                        <span><i class="fab fa-js"></i> JavaScript</span>
+                        <span><i class="fab fa-html5"></i> HTML5</span>
+                        <span><i class="fab fa-css3-alt"></i> CSS3</span>
+                    </div>
+                    <p>Jeu interactif avec IA, animations 3D, mode multijoueur et thèmes personnalisés.</p>
+                    <div class="project-links">
+                        <a href="video/tic tac toe.mp4" target="_blank" class="demo-link"><i class="fas fa-video"></i> Démo</a>
+                        <a href="https://github.com/maminirina593/tictactoe" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 5 (caché) -->
+            <div class="project-card hidden">
+                <img src="images/pta.jpg" alt="PTA Planning" class="project-img">
+                <div class="project-content">
+                    <h3>PTA – Planning de Travail Annuel</h3>
+                    <div class="project-tech">
+                        <span><i class="fab fa-php"></i> PHP</span>
+                        <span><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                        <span><i class="fas fa-database"></i> MySQL</span>
+                    </div>
+                    <p>Outil de planification annuelle avec calendriers, rapports et export PDF.</p>
+                    <div class="project-links">
+                        <a href="video/pta.mp4" target="_blank" class="demo-link"><i class="fas fa-video"></i> Démo</a>
+                        <a href="https://github.com/maminirina593/pta" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 6 (caché) -->
+            <div class="project-card hidden">
+                <img src="images/cotisation.jpg" alt="Gestion Cotisation" class="project-img">
+                <div class="project-content">
+                    <h3>Gestion Cotisation Association</h3>
+                    <div class="project-tech">
+                        <span><i class="fab fa-python"></i> Django</span>
+                        <span><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                        <span><i class="fas fa-database"></i> MySQL</span>
+                    </div>
+                    <p>Système de cotisation avec rappels, historique et génération de reçus.</p>
+                    <div class="project-links">
+                        <a href="video/cotisation.mp4" target="_blank" class="demo-link"><i class="fas fa-video"></i> Démo</a>
+                        <a href="https://github.com/maminirina593/cotisation" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bouton Toggle Voir plus / Voir moins -->
+        <div class="see-more">
+            <button id="toggle-projects" class="btn-toggle collapsed">
+                <span class="btn-text">Voir plus de projets</span>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+       <!-- Contact Section – 2 Colonnes, Moderne, Animé -->
+<section id="contact">
+    <div class="contact-container">
+
+        <!-- COLONNE 1 : Infos + Icône Nom -->
+        <div class="contact-info">
+            <div class="info-header">
+                <!-- Icône personnalisée avec nom -->
+                <div class="name-icon">
+                    <span class="initial">M</span>
+                </div>
+                <h2 data-key="contact.title">Me Contacter</h2>
+            </div>
+
+            <div class="info-list">
+                <p><i class="fas fa-user"></i> RANDRIANIAINA Maminirina Jean Noël</p>
+                <p><i class="fas fa-phone"></i>+261 34 74 956 07 / +261 33 41 477 68</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:maminirinajeannoel@gmail.com">maminirinajeannoel@gmail.com</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Isaingy, Antananarivo, Madagascar</p>
+                <p><i class="fab fa-github"></i> <a href="https://github.com/maminirina593" target="_blank">github.com/maminirina593</a></p>
+                <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/maminirina" target="_blank">linkedin.com/in/maminirina</a></p>
+            </div>
+
+            <!-- Réseaux sociaux -->
+            <div class="social-links">
+                <a href="https://github.com/maminirina593" class="social-btn github" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/" class="social-btn linkedin" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:maminirinajeannoel@gmail.com" class="social-btn email" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- COLONNE 2 : Formulaire -->
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="" required>
+                    <label for="name">Nom</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="5" required></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text" data-key="contact.send">Envoyer</span>
+                    <i class="fas fa-paper-plane send-icon"></i>
+                </button>
+            </form>
+            <div class="form-message" id="formMessage"></div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+        <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p class="copyright">
+                © <span id="currentYear"></span> <strong>Maminirina Jean Noel</strong>. Tous droits réservés.
+            </p>
+            <p class="made-with">
+                Fait avec <i class="fas fa-heart"></i> et <i class="fas fa-code"></i> par <strong>Maminirina</strong>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bouton Retour Haut -->
+    <button id="backToTop" class="back-to-top" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+        <nav class="nav-floating" id="nav">
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link active" data-section="home"><i class="fas fa-home"></i></a></li>
+                <li><a href="#about" class="nav-link" data-section="about"><i class="fas fa-user"></i></a></li>
+                <li><a href="#education" class="nav-link" data-section="education"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills"><i class="fas fa-cogs"></i></a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects"><i class="fas fa-briefcase"></i></a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact"><i class="fas fa-phone"></i></a></li>
+
+            </ul>
+        </nav>
+        
+    <!-- JS Modules -->
+    <script src="js/theme.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/education.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/about.js"></script>
+    <script src="js/education.js"></script>
+    <script src="js/competence.js"></script>
+    <script src="js/projets.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>
