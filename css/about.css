@@ -1,20 +1,39 @@
-/* ==================== ABOUT SECTION – ULTRA MODERNE & RESPONSIVE ==================== */
+/* ==================== ABOUT SECTION – ULTRA MODERNE, RESPONSIVE 100%, TOUT VISIBLE ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f9fa;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.5s ease;
+}
+
+body.dark {
+    background: #0f172a;
+}
+
+/* === SECTION PRINCIPALE === */
 #about {
     padding: 100px 5vw;
     min-height: 100vh;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     position: relative;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
 }
 
 body.dark #about {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
 
-/* === CONTENEUR PRINCIPAL === */
+/* === CONTENEUR === */
 .about-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -53,7 +72,7 @@ body.dark .about-card {
         0 0 0 1px rgba(96, 165, 250, 0.2) inset;
 }
 
-/* === BORDURE ANIMÉE (GLASSMORPHISM + GRADIENT) === */
+/* === BORDURE ANIMÉE === */
 .about-card::before {
     content: '';
     position: absolute;
@@ -88,17 +107,19 @@ body.dark .about-card {
     gap: 50px;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
 .about-row.reverse {
     flex-direction: row-reverse;
 }
 
-/* === IMAGE – FIX DÉBORDEMENT + CENTRAGE === */
+/* === IMAGE – 100% VISIBILE, AUCUN DÉBORDEMENT === */
 .about-image {
     flex: 1;
-    min-width: 280px;
+    min-width: 260px;
     max-width: 360px;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     border-radius: 24px;
@@ -116,7 +137,9 @@ body.dark .about-card {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
 }
 
 .about-image:hover img {
@@ -178,11 +201,13 @@ body.dark .tech-ring i {
     50% { transform: translate(-50%, -50%) translateY(-8px); }
 }
 
-/* === CONTENU TEXTE === */
+/* === CONTENU TEXTE – TOUT VISIBLE === */
 .about-content {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
     text-align: left;
+    width: 100%;
+    padding: 0 8px;
 }
 
 .about-content h2 {
@@ -190,8 +215,8 @@ body.dark .tech-ring i {
     font-weight: 800;
     color: #1e293b;
     margin-bottom: 24px;
-    position: relative;
     line-height: 1.2;
+    word-wrap: break-word;
 }
 
 body.dark .about-content h2 {
@@ -221,6 +246,7 @@ body.dark .about-content h2::after {
     color: #3b82f6;
     margin: 20px 0 16px;
     line-height: 1.3;
+    word-wrap: break-word;
 }
 
 body.dark .about-content h3 {
@@ -233,13 +259,15 @@ body.dark .about-content h3 {
     color: #475569;
     opacity: 0.95;
     margin-bottom: 18px;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 body.dark .about-content p {
     color: #cbd5e1;
 }
 
-/* === TEXTE D'EXPÉRIENCE – FIX "À propos de moi" === */
+/* === TEXTE "À PROPOS DE MOI" & EXPÉRIENCE – 100% VISIBLE === */
 .experience-text {
     text-align: justify;
     text-justify: inter-word;
@@ -247,18 +275,22 @@ body.dark .about-content p {
     line-height: 1.85;
     font-size: 17px;
     color: #334155;
-    padding-right: 0; /* Fix débordement */
+    word-wrap: break-word;
+    hyphens: auto;
+    padding: 0 12px;
+    width: 100%;
 }
 
 body.dark .experience-text {
     color: #cbd5e1;
 }
 
-/* === BOUTON CV – CENTRÉ EN BAS === */
+/* === BOUTON CV – TOUJOURS VISIBLE === */
 .cv-download {
     display: flex;
     justify-content: center;
     margin-top: 40px;
+    width: 100%;
 }
 
 .btn-cv {
@@ -277,6 +309,7 @@ body.dark .experience-text {
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .btn-cv::before {
@@ -314,7 +347,12 @@ body.dark .experience-text {
     to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* ==================== RESPONSIVE – MOBILE FIRST & PARFAIT ==================== */
+/* ==================== RESPONSIVE – 100% MOBILE, TOUT VISIBLE ==================== */
+@media (max-width: 1200px) {
+    .about-container { gap: 70px; }
+    .about-card { padding: 40px; }
+}
+
 @media (max-width: 992px) {
     .about-row {
         flex-direction: column !important;
@@ -323,38 +361,48 @@ body.dark .experience-text {
     }
     .about-image {
         max-width: 320px;
+        min-width: 260px;
         margin: 0 auto;
     }
     .about-content {
         text-align: center;
+        padding: 0 16px;
     }
     .about-content h2::after {
         left: 50%;
         transform: translateX(-50%);
     }
-    .cv-download {
-        margin-top: 36px;
-    }
+    .cv-download { margin-top: 36px; }
+    .experience-text { padding: 0 16px; }
 }
 
 @media (max-width: 768px) {
-    #about { padding: 90px 5vw; }
-    .about-card { padding: 36px; }
+    #about { padding: 90px 4vw; }
+    .about-card { 
+        padding: 36px 24px;
+        border-radius: 28px;
+    }
     .about-content h2 { font-size: 38px; }
     .about-content h3 { font-size: 30px; }
-    .about-content p { font-size: 17px; }
-    .experience-text { font-size: 16px; padding: 0 8px; }
+    .about-content p { font-size: 17px; line-height: 1.95; }
+    .experience-text { 
+        font-size: 16px; 
+        line-height: 1.9;
+        padding: 0 16px;
+    }
+    .about-image { max-width: 300px; }
+    .tech-ring i { font-size: 26px; }
 }
 
 @media (max-width: 480px) {
-    #about { padding: 80px 4vw; }
+    #about { padding: 80px 3vw; }
     .about-card { 
-        padding: 28px 20px;
-        border-radius: 26px;
+        padding: 28px 18px;
+        border-radius: 24px;
     }
     .about-content h2 { 
         font-size: 34px; 
-        margin-bottom: 20px;
+        margin-bottom: 18px;
     }
     .about-content h3 { font-size: 28px; }
     .about-content p { 
@@ -364,15 +412,16 @@ body.dark .experience-text {
     .experience-text { 
         font-size: 15.5px; 
         line-height: 1.85;
-        margin: 20px 0;
-        padding: 0;
+        margin: 18px 0;
+        padding: 0 12px;
     }
     .about-image {
-        max-width: 280px;
-        min-width: 240px;
+        max-width: 260px;
+        min-width: 220px;
+        margin: 0 auto;
     }
     .btn-cv {
-        padding: 13px 30px;
+        padding: 13px 28px;
         font-size: 16px;
         gap: 10px;
     }
@@ -380,8 +429,37 @@ body.dark .experience-text {
 }
 
 @media (max-width: 360px) {
+    #about { padding: 70px 2vw; }
+    .about-card { 
+        padding: 24px 16px;
+        border-radius: 22px;
+    }
     .about-content h2 { font-size: 32px; }
     .about-content h3 { font-size: 26px; }
-    .about-image { max-width: 260px; }
-    .btn-cv { padding: 12px 28px; font-size: 15.5px; }
+    .about-content p { font-size: 15.5px; line-height: 1.85; }
+    .experience-text { 
+        font-size: 15px; 
+        line-height: 1.8;
+        padding: 0 10px;
+    }
+    .about-image { 
+        max-width: 240px; 
+        min-width: 200px;
+    }
+    .btn-cv { 
+        padding: 12px 26px; 
+        font-size: 15.5px; 
+        gap: 8px;
+    }
+    .tech-ring i { font-size: 22px; }
+}
+
+/* === FIX ULTIME POUR TRÈS PETITS ÉCRANS === */
+@media (max-width: 320px) {
+    .about-content h2 { font-size: 30px; }
+    .about-content h3 { font-size: 24px; }
+    .about-content p { font-size: 15px; }
+    .experience-text { font-size: 14.5px; }
+    .about-image { max-width: 220px; }
+    .btn-cv { padding: 11px 24px; font-size: 15px; }
 }
