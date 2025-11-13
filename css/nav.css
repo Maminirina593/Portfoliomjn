@@ -1,3 +1,4 @@
+/* ==================== NAVIGATION FLOTTANTE – ULTRA MODERNE & COMPACT ==================== */
 * {
     margin: 0;
     padding: 0;
@@ -10,131 +11,188 @@ body {
     min-height: 300vh;
     padding-bottom: 200px;
     transition: background 0.5s ease;
+    overflow-x: hidden;
 }
 
 body.dark {
     background: #0f172a;
 }
 
+/* === BARRE FLOTTANTE === */
 .nav-floating {
     position: fixed;
-    bottom: 25px;
+    bottom: 22px;
     left: 50%;
     transform: translateX(-50%);
-    width: 380px;
-    max-width: 92vw;
-    height: 68px;
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-radius: 40px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-    border: 2.5px solid #3b82f6;
+    width: 340px;               /* Réduit de 380 → 340 */
+    max-width: 90vw;
+    height: 62px;               /* Réduit de 68 → 62 */
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 38px;
+    box-shadow: 
+        0 12px 28px rgba(0, 0, 0, 0.15),
+        0 0 0 2.8px #3b82f6 inset;
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    padding: 0 16px;
-    overflow: hidden; /* Garde le souligné à l'intérieur */
+    padding: 0 14px;
+    overflow: hidden;
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.dark .nav-floating {
-    background: rgba(30, 41, 59, 0.75);
-    border-color: #60a5fa;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    background: rgba(15, 23, 42, 0.88);
+    box-shadow: 
+        0 12px 28px rgba(0, 0, 0, 0.45),
+        0 0 0 2.8px #60a5fa inset;
 }
 
+/* === LISTE === */
 .nav-list {
     list-style: none;
     display: flex;
     width: 100%;
-    justify-content: space-between;
-    position: relative;
     height: 100%;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 12px;
+    margin: 0;
+    position: relative;
 }
 
+/* === CHAQUE <li> – CENTRAGE PARFAIT === */
+.nav-list li {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* === LIENS === */
 .nav-link {
     position: relative;
-    width: 48px;
-    height: 48px;
+    width: 44px;                /* Réduit de 48 → 44 */
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     color: #64748b;
-    font-size: 22px;
-    transition: none;
+    font-size: 19px;           /* Réduit de 22 → 19 */
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     z-index: 2;
+    text-decoration: none;
+    outline: none;
 }
 
 body.dark .nav-link {
     color: #94a3b8;
 }
 
+/* === HOVER – ANIMATION FLUIDE === */
+.nav-link:hover {
+    background: rgba(59, 130, 246, 0.16);
+    color: #3b82f6;
+    transform: translateY(-3px) scale(1.12);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.28);
+}
+
+body.dark .nav-link:hover {
+    background: rgba(96, 165, 250, 0.22);
+    color: #60a5fa;
+    box-shadow: 0 6px 16px rgba(96, 165, 250, 0.32);
+}
+
+/* === ACTIF === */
 .nav-link.active {
     color: #3b82f6;
+    font-weight: 700;
 }
 
 body.dark .nav-link.active {
     color: #60a5fa;
 }
 
-/* SOULIGNÉ MODERNE – JUSTE SOUS L’ICÔNE, À L’INTÉRIEUR */
+/* === SOULIGNÉ SOUS L’ICÔNE – CENTRÉ, ÉLÉGANT, ANIMÉ === */
 .nav-link.active::after {
     content: '';
     position: absolute;
-    bottom: 6px; /* Juste en dessous de l’icône */
+    bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 28px;
-    height: 3px;
-    background: #3b82f6;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 26px;               /* Réduit de 28 → 26 */
+    height: 3.5px;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(59, 130, 246, 0.45);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: indicatorPulse 1.8s ease-in-out infinite;
 }
 
 body.dark .nav-link.active::after {
-    background: #60a5fa;
-    box-shadow: 0 2px 6px rgba(96, 165, 250, 0.5);
+    background: linear-gradient(90deg, #60a5fa, #93c5fd);
+    box-shadow: 0 3px 8px rgba(96, 165, 250, 0.55);
 }
 
-.nav-link:hover {
-    color: inherit;
+/* === ANIMATION DU SOULIGNÉ === */
+@keyframes indicatorPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.15); }
 }
 
-/* Responsive */
+/* === RESPONSIVE – CENTRAGE PARFAIT SUR TOUS LES ÉCRANS === */
 @media (max-width: 768px) {
     .nav-floating {
-        width: 340px;
-        height: 64px;
+        width: 320px;
+        height: 60px;
     }
     .nav-link {
-        width: 44px;
-        height: 44px;
-        font-size: 20px;
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
     }
     .nav-link.active::after {
         width: 24px;
-        bottom: 5px;
+        bottom: 7px;
     }
 }
 
 @media (max-width: 480px) {
     .nav-floating {
-        width: 300px;
-        height: 60px;
-        bottom: 18px;
+        width: 290px;
+        height: 58px;
+        bottom: 16px;
+        padding: 0 10px;
     }
     .nav-link {
         width: 40px;
         height: 40px;
-        font-size: 19px;
+        font-size: 17px;
     }
     .nav-link.active::after {
         width: 22px;
-        bottom: 4px;
+        bottom: 6px;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-floating {
+        width: 270px;
+        height: 56px;
+    }
+    .nav-link {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+    .nav-link.active::after {
+        width: 20px;
+        bottom: 5px;
     }
 }

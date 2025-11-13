@@ -1,84 +1,95 @@
-/* ==================== PROJETS – LIGHT & DARK + TOGGLE ==================== */
+/* ==================== PROJETS – ULTRA MODERNE & RESPONSIVE ==================== */
 #projects {
-    padding: 120px 5vw;
+    padding: clamp(80px, 12vw, 120px) 5vw;
     min-height: 100vh;
     position: relative;
     overflow: hidden;
-    transition: background 0.5s ease;
-}
-
-/* LIGHT MODE */
-#projects {
+    transition: background 0.6s ease;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
+body.dark #projects {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+/* ==================== HEADER ==================== */
 .section-header {
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: clamp(50px, 8vw, 70px);
+    animation: fadeInDown 0.8s ease-out;
 }
 
 .section-header h2 {
-    font-size: 52px;
+    font-size: clamp(36px, 6vw, 52px);
     font-weight: 900;
     background: linear-gradient(135deg, #1e40af, #3b82f6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin: 0;
-    letter-spacing: 1px;
-}
-
-.title-underline {
-    width: 120px;
-    height: 5px;
-    background: linear-gradient(90deg, #3b82f6, #60a5fa);
-    margin: 20px auto 0;
-    border-radius: 3px;
-    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
-}
-
-/* DARK MODE */
-body.dark #projects {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 body.dark .section-header h2 {
     background: linear-gradient(135deg, #60a5fa, #93c5fd);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.title-underline {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    margin: 16px auto 0;
+    border-radius: 2px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    transition: width 0.4s ease;
 }
 
 body.dark .title-underline {
     background: linear-gradient(90deg, #60a5fa, #93c5fd);
-    box-shadow: 0 4px 15px rgba(96, 165, 250, 0.4);
+    box-shadow: 0 4px 16px rgba(96, 165, 250, 0.4);
 }
 
-/* Grid */
+.section-header:hover .title-underline {
+    width: 140px;
+}
+
+/* ==================== GRID ==================== */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(24px, 3vw, 36px);
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
-/* Card – Hauteur augmentée + border-radius moderne */
+/* ==================== CARD ==================== */
 .project-card {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     opacity: 0;
-    transform: translateY(40px);
-    height: 520px; /* Hauteur augmentée */
+    transform: translateY(30px);
+    min-height: 460px;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    will-change: transform, opacity;
 }
 
 body.dark .project-card {
-    background: #1e293b;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    background: rgba(30, 41, 59, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(96, 165, 250, 0.2);
 }
 
@@ -88,75 +99,90 @@ body.dark .project-card {
 }
 
 .project-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    transform: translateY(-14px) scale(1.03);
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18);
 }
 
 body.dark .project-card:hover {
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(96, 165, 250, 0.2);
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.7), 0 0 24px rgba(96, 165, 250, 0.3);
 }
 
 /* Image */
 .project-img {
     width: 100%;
-    height: 220px;
+    height: 200px;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease, filter 0.4s ease;
+    filter: brightness(0.94) contrast(1.05);
 }
 
 .project-card:hover .project-img {
-    transform: scale(1.08);
+    transform: scale(1.1);
+    filter: brightness(1.02) contrast(1.1);
 }
 
-/* Contenu */
+/* ==================== CONTENU ==================== */
 .project-content {
-    padding: 28px;
-    flex-grow: 1;
+    padding: clamp(20px, 3vw, 28px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    flex-grow: 1;
+    justify-content: flex-start;
+    gap: clamp(10px, 1.8vw, 14px);
 }
 
+/* Titre – Réduit */
 .project-content h3 {
-    font-size: 24px;
+    font-size: clamp(19px, 3vw, 21px);
     font-weight: 700;
     color: #1e40af;
-    margin-bottom: 16px;
+    margin: 0;
+    text-align: center;
+    line-height: 1.3;
 }
 
 body.dark .project-content h3 {
     color: #93c5fd;
 }
 
+/* Technologies – COMPACTES & MODERNES */
 .project-tech {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 16px;
+    gap: clamp(6px, 1vw, 8px);
     justify-content: center;
+    margin: 0;
 }
 
 .project-tech span {
-    background: rgba(59, 130, 246, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(59, 130, 246, 0.12);
     color: #1e40af;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
+    padding: clamp(5px, 0.8vw, 7px) clamp(10px, 1.5vw, 14px);
+    border-radius: 16px;
+    font-size: clamp(11.5px, 1.6vw, 12.5px);
     font-weight: 600;
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.25);
     transition: all 0.3s ease;
+    white-space: nowrap;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 body.dark .project-tech span {
-    background: rgba(96, 165, 250, 0.15);
+    background: rgba(96, 165, 250, 0.18);
     color: #93c5fd;
-    border-color: rgba(96, 165, 250, 0.3);
+    border-color: rgba(96, 165, 250, 0.35);
 }
 
 .project-tech span:hover {
     background: #3b82f6;
     color: white;
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 body.dark .project-tech span:hover {
@@ -164,136 +190,189 @@ body.dark .project-tech span:hover {
     color: #0f172a;
 }
 
+/* Description */
 .project-content p {
-    font-size: 16px;
+    font-size: clamp(13.5px, 2vw, 15px);
     color: #475569;
-    line-height: 1.7;
-    margin-bottom: 20px;
+    line-height: 1.65;
+    margin: 0;
     flex-grow: 1;
+    text-align: center;
+    opacity: 0.88;
 }
 
 body.dark .project-content p {
     color: #cbd5e1;
+    opacity: 0.92;
 }
 
-/* Liens */
+/* ==================== BOUTONS – TOUJOURS VISIBLES ==================== */
 .project-links {
     display: flex;
-    gap: 14px;
+    gap: clamp(10px, 1.5vw, 14px);
     justify-content: center;
+    margin-top: auto;
+    padding-top: clamp(12px, 2vw, 16px);
+    border-top: 1px dashed rgba(0, 0, 0, 0.12);
 }
 
-.demo-link, .github-link {
+body.dark .project-links {
+    border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.demo-link,
+.github-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 11px 22px;
-    border-radius: 25px;
-    font-size: 15px;
+    justify-content: center;
+    gap: 7px;
+    padding: clamp(9px, 1.4vw, 11px) clamp(16px, 2.5vw, 20px);
+    border-radius: 50px;
+    font-size: clamp(13px, 1.9vw, 14.5px);
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.35s ease;
+    min-width: clamp(96px, 14vw, 110px);
+    white-space: nowrap;
 }
 
 .demo-link {
-    background: #3b82f6;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
     color: white;
-    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
 }
 
 .github-link {
     background: #1e293b;
     color: white;
-    border: 1px solid #475569;
+    border: 1.5px solid #475569;
 }
 
 body.dark .github-link {
     background: #334155;
-    border-color: #475569;
+    border-color: #64748b;
 }
 
 .demo-link:hover {
-    background: #2563eb;
+    background: #1d4ed8;
     transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(29, 78, 216, 0.4);
 }
 
 .github-link:hover {
     background: #475569;
+    color: white;
     transform: translateY(-3px);
+    border-color: #64748b;
 }
 
-/* Bouton Toggle */
+/* ==================== BOUTON TOGGLE ==================== */
 .see-more {
     text-align: center;
-    margin-top: 70px;
+    margin-top: clamp(50px, 8vw, 70px);
 }
 
 .btn-toggle {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px 44px;
+    gap: 10px;
+    padding: clamp(13px, 2vw, 16px) clamp(32px, 5vw, 44px);
     background: linear-gradient(135deg, #3b82f6, #60a5fa);
     color: white;
     border: none;
     border-radius: 50px;
-    font-size: 18px;
+    font-size: clamp(15px, 2.3vw, 17px);
     font-weight: 700;
     cursor: pointer;
     transition: all 0.4s ease;
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+    backdrop-filter: blur(8px);
 }
 
 body.dark .btn-toggle {
     background: linear-gradient(135deg, #60a5fa, #93c5fd);
     color: #0f172a;
-    box-shadow: 0 10px 30px rgba(96, 165, 250, 0.4);
+    box-shadow: 0 8px 24px rgba(96, 165, 250, 0.4);
 }
 
 .btn-toggle:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 14px 32px rgba(59, 130, 246, 0.4);
 }
 
 .toggle-icon {
-    transition: transform 0.3s ease;
+    transition: transform 0.35s ease;
+    font-size: 1.1em;
 }
 
 .btn-toggle.collapsed .toggle-icon {
     transform: rotate(180deg);
 }
 
-/* Hidden cards */
+/* ==================== CACHÉ ==================== */
 .project-card.hidden {
     display: none;
 }
 
-/* Responsive */
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 992px) {
     .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 28px;
     }
     .project-card {
-        height: 500px;
+        min-height: 440px;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        min-height: 420px;
+    }
+    .project-img {
+        height: 180px;
     }
 }
 
 @media (max-width: 480px) {
     #projects {
-        padding: 90px 5vw;
+        padding: 70px 4vw;
     }
     .section-header h2 {
-        font-size: 42px;
+        font-size: 36px;
     }
     .project-card {
-        height: 480px;
+        min-height: 400px;
     }
     .project-content {
-        padding: 20px;
+        padding: 18px;
+        gap: 10px;
+    }
+    .project-content h3 {
+        font-size: 19px;
+    }
+    .project-content p {
+        font-size: 13.5px;
+    }
+    .project-tech span {
+        font-size: 11.5px;
+        padding: 5px 10px;
+        max-width: 90px;
+    }
+    .demo-link,
+    .github-link {
+        padding: 8px 14px;
+        font-size: 13px;
+        min-width: 88px;
     }
     .btn-toggle {
-        padding: 14px 36px;
-        font-size: 16px;
+        padding: 12px 28px;
+        font-size: 15px;
     }
 }
