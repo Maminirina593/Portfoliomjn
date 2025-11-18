@@ -1,9 +1,9 @@
 /**
  * contact.js – Formulaire de contact + EmailJS
  * Fonctionne avec : service_d8hf2rp | template_avl3meh | VrEUDWmNoSjcnNx_B
- * CORRIGÉ : Erreur 422 → Variables from_name / from_email
+ * CORRIGÉ 2025 : Erreur 400 → Ajout user_id + gestion parfaite des params
  * SUCCÈS : "Message envoyé avec succès !"
- * ERREUR : Message clair + console
+ * ERREUR : Message ultra clair (jamais "inconnue") + console détaillée
  */
 document.addEventListener('DOMContentLoaded', () => {
     // === ÉLÉMENTS DU DOM ===
@@ -76,21 +76,22 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.remove('fa-paper-plane');
         icon.classList.add('fa-spinner', 'fa-spin');
 
-        // === PARAMÈTRES EMAILJS (CORRIGÉ POUR 422) ===
+        // === PARAMÈTRES EMAILJS (CORRIGÉ POUR 400/422) ===
         const templateParams = {
             from_name: name,      // EmailJS attend "from_name"
             from_email: email,    // EmailJS attend "from_email"
             message: message      // OK
         };
 
-        // === ENVOI VIA EMAILJS ===
+        // === ENVOI VIA EMAILJS (AVEC user_id explicite pour éviter 400) ===
         try {
             console.log('Envoi vers EmailJS...', templateParams);
 
             const response = await emailjs.send(
                 EMAILJS_SERVICE_ID,
                 EMAILJS_TEMPLATE_ID,
-                templateParams
+                templateParams,
+                EMAILJS_USER_ID  // ← CLÉ PUBLIQUE AJOUTÉE ICI (corrige le 400)
             );
 
             // SUCCÈS
@@ -99,39 +100,45 @@ document.addEventListener('DOMContentLoaded', () => {
             form.reset();
 
         } catch (error) {
-            // GESTION COMPLÈTE DES ERREURS
+            // GESTION COMPLÈTE DES ERREURS (ultra précise)
             console.error('ERREUR EMAILJS :', error);
 
-            let userMsg = 'Erreur inconnue.';
+            let userMsg = '';
 
+            // Affichage du vrai message EmailJS si disponible
+            if (error?.text) {
+                userMsg = error.text.replace('EmailJS Error: ', '');  // Nettoie le préfixe
+            } else if (error?.message) {
+                userMsg = error.message;
+            } else {
+                userMsg = 'Erreur réseau ou serveur.';
+            }
+
+            // Ajout de contexte si code d'erreur
             if (error?.status) {
                 switch (error.status) {
                     case 400:
-                        userMsg = 'Données invalides. Vérifiez le template.';
+                        userMsg += ' (Données invalides – vérifiez le template).';
                         break;
                     case 401:
-                        userMsg = 'Clé publique incorrecte.';
+                        userMsg += ' (Clé publique incorrecte).';
                         break;
                     case 402:
-                        userMsg = 'Limite d\'envoi dépassée (200/mois).';
+                        userMsg += ' (Limite d\'envoi dépassée – 200/mois).';
                         break;
                     case 404:
-                        userMsg = 'Service ou template introuvable.';
+                        userMsg += ' (Service ou template introuvable).';
                         break;
                     case 422:
-                        userMsg = 'Variables du template incorrectes (from_name, from_email ?)';
+                        userMsg += ' (Variables du template incorrectes – from_name/from_email ?).';
                         break;
                     default:
-                        userMsg = `Erreur ${error.status}.`;
+                        userMsg += ` (Code ${error.status}).`;
                 }
-            } else if (error?.text) {
-                if (error.text.includes('CORS')) {
-                    userMsg = 'Utilisez Live Server (pas file://)';
-                } else if (error.text.includes('network')) {
-                    userMsg = 'Pas de connexion internet.';
-                } else {
-                    userMsg = `Serveur : ${error.text}`;
-                }
+            }
+
+            if (!userMsg) {
+                userMsg = 'Erreur inconnue. Vérifiez la console.';
             }
 
             showMessage(`Erreur : ${userMsg}`, 'error');
