@@ -1,11 +1,10 @@
-/* ==== VARIABLES ==== */
+/* ==================== VARIABLES GLOBALES ==================== */
 :root {
   --primary: #007bff;
   --primary-light: #4dabf7;
   --text-dark: #333;
   --text-light: #f4f4f4;
   --text-muted: #555;
-  --text-muted-light: #ddd;
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
   --transition: all 0.4s ease;
 }
@@ -15,14 +14,18 @@ body.dark {
   --text-dark: #f4f4f4;
   --text-light: #ddd;
   --text-muted: #aaa;
-  --text-muted-light: #ccc;
 }
 
-/* ==== RÉINITIALISATION ==== */
+/* ==================== RESET & BODY FIXE ==================== */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -30,8 +33,11 @@ body {
   background: #fff;
   color: var(--text-dark);
   line-height: 1.9;
-  transition: var(--transition);
-  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.5s ease;
+  /* EMPÊCHE TOUT TREMBLEMENT LIÉ AU TEXTE DACTYLO */
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body.dark {
@@ -39,13 +45,13 @@ body.dark {
   color: var(--text-light);
 }
 
-/* ==== SECTION HOME ==== */
+/* ==================== SECTION HOME ==================== */
 #home {
   min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 5vw 100px;
+  padding: 80px 5vw 120px;
   position: relative;
 }
 
@@ -58,12 +64,12 @@ body.dark {
   width: 100%;
   margin: 0 auto;
   flex-wrap: wrap;
+  z-index: 1;
 }
 
-/* ==== TEXTE ==== */
+/* Texte */
 .home-text {
   flex: 1 1 360px;
-  max-width: 100%;
   padding: 0 12px;
 }
 
@@ -76,6 +82,9 @@ body.dark {
   overflow: hidden;
   border-right: 3px solid var(--primary);
   display: inline-block;
+  /* Évite le reflow qui fait trembler les éléments fixed */
+  width: auto;
+  min-height: 1.2em;
 }
 
 .static-title {
@@ -95,11 +104,9 @@ body.dark {
   text-justify: inter-word;
   hyphens: none;
   word-break: keep-all;
-  overflow-wrap: normal;
   padding: 0 8px;
 }
 
-/* ==== BOUTONS ==== */
 .buttons {
   display: flex;
   gap: 18px;
@@ -110,7 +117,6 @@ body.dark {
   padding: 14px 30px;
   font-size: clamp(15px, 2.5vw, 16px);
   font-weight: 600;
-  text-decoration: none;
   border-radius: 50px;
   transition: var(--transition);
   display: inline-flex;
@@ -119,6 +125,7 @@ body.dark {
   white-space: nowrap;
   min-width: 140px;
   justify-content: center;
+  text-decoration: none;
 }
 
 .btn-primary {
@@ -127,11 +134,7 @@ body.dark {
   box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
 }
 
-.btn-primary:hover {
-  background: #0056b3;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0, 123, 255, 0.4);
-}
+.btn-primary:hover { background: #0056b3; transform: translateY(-3px); }
 
 .btn-outline {
   border: 2px solid var(--primary);
@@ -139,24 +142,19 @@ body.dark {
   background: transparent;
 }
 
-.btn-outline:hover {
-  background: var(--primary);
-  color: white;
-  transform: translateY(-3px);
-}
+.btn-outline:hover { background: var(--primary); color: white; transform: translateY(-3px); }
 
 body.dark .btn-primary { background: var(--primary-light); }
 body.dark .btn-outline { border-color: var(--primary-light); color: var(--primary-light); }
 body.dark .btn-outline:hover { background: var(--primary-light); color: #121212; }
 
-/* ==== IMAGE ==== */
+/* Image + orbite */
 .home-image {
   flex: 1 1 340px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
-  min-width: 0;
 }
 
 .profile-container {
@@ -174,12 +172,9 @@ body.dark .btn-outline:hover { background: var(--primary-light); color: #121212;
   box-shadow: var(--shadow);
   transition: var(--transition);
   z-index: 2;
-  display: block;
 }
 
-.profile-img:hover {
-  transform: scale(1.06);
-}
+.profile-img:hover { transform: scale(1.06); }
 
 .tech-orbit {
   position: absolute;
@@ -201,7 +196,6 @@ body.dark .btn-outline:hover { background: var(--primary-light); color: #121212;
   animation: float 6s ease-in-out infinite;
 }
 
-/* Positions des icônes */
 .tech-orbit i:nth-child(1) { top: 4%; left: 50%; transform: translateX(-50%); }
 .tech-orbit i:nth-child(2) { top: 18%; right: 8%; }
 .tech-orbit i:nth-child(3) { bottom: 12%; right: 12%; }
@@ -209,116 +203,156 @@ body.dark .btn-outline:hover { background: var(--primary-light); color: #121212;
 .tech-orbit i:nth-child(5) { top: 50%; left: -2%; transform: translateY(-50%); }
 .tech-orbit i:nth-child(6) { top: 50%; right: -2%; transform: translateY(-50%); }
 
-/* ==== ANIMATIONS ==== */
-@keyframes rotate {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-20px) scale(1.1); }
-}
-@keyframes fadeInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
+/* Animations */
+@keyframes rotate { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+@keyframes float { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-20px) scale(1.1); } }
 
-/* ==== RESPONSIVE ==== */
-@media (max-width: 992px) {
-  .home-container {
-      flex-direction: column;
-      text-align: center;
-      justify-content: center;
-      gap: 50px;
-      padding: 0 5vw;
-  }
-
-  .home-text,
-  .home-image {
-      animation: none;
-      opacity: 1;
-  }
-
-  .greeting-text,
-  .static-title {
-      white-space: normal;
-  }
-
-  .description-text {
-      text-align: justify;
-      padding: 0 15px;
-      max-width: 100%;
-  }
-
-  .buttons {
-      justify-content: center;
-  }
+/* ==================== HEADER FIXE – NE BOUGE JAMAIS ==================== */
+header {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 9999;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-@media (max-width: 768px) {
-  #home {
-      padding: 40px 4vw 80px;
-  }
-
-  .profile-container {
-      width: 280px;
-      height: 280px;
-  }
-
-  .tech-orbit {
-      width: 380px;
-      height: 380px;
-  }
+body.dark header {
+  background: rgba(20, 20, 30, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
+#theme-toggle, #lang-select {
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  color: #333;
+  font-size: 19px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+body.dark #theme-toggle, body.dark #lang-select {
+  background: rgba(255, 255, 255, 0.12);
+  color: #f4f4f4;
+}
+
+#lang-select {
+  min-width: 52px;
+  padding: 0 20px 0 12px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='%23333'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 11px;
+  appearance: none;
+}
+
+body.dark #lang-select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='%23f4f4f4'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+}
+
+/* ==================== NAVIGATION FLOTTANTE – FIXE À VIE ==================== */
+.nav-floating {
+  position: fixed !important;
+  bottom: 22px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 340px;
+  max-width: 90vw;
+  height: 62px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 38px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18), 0 0 0 3px #3b82f6 inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 0 14px;
+  will-change: transform;
+}
+
+body.dark .nav-floating {
+  background: rgba(15, 23, 42, 0.92);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 0 3px #60a5fa inset;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  margin: 0;
+}
+
+.nav-link {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #64748b;
+  font-size: 19px;
+  transition: all 0.35s ease;
+  text-decoration: none;
+}
+
+body.dark .nav-link { color: #94a3b8; }
+
+.nav-link:hover {
+  background: rgba(59, 130, 246, 0.18);
+  color: #3b82f6;
+  transform: translateY(-3px) scale(1.15);
+}
+
+.nav-link.active {
+  color: #3b82f6;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 3.8px;
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(59, 130, 246, 0.5);
+}
+
+body.dark .nav-link.active::after {
+  background: linear-gradient(90deg, #60a5fa, #93c5fd);
+}
+
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 480px) {
-  #home {
-      padding: 30px 15px 70px;
-  }
-
-  .greeting-text {
-      white-space: normal;
-  }
-
-  .btn {
-      padding: 12px 24px;
-      font-size: 15px;
-      width: 100%;
-      max-width: 200px;
-  }
-
-  .buttons {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .profile-container {
-      width: 240px;
-      height: 240px;
-  }
-
-  .tech-orbit {
-      width: 340px;
-      height: 340px;
-  }
-
-  .description-text {
-      padding: 0 10px;
-      font-size: 16px;
-  }
-}
-
-@media (max-width: 360px) {
-  .profile-container {
-      width: 220px;
-      height: 220px;
-  }
-  .tech-orbit {
-      width: 310px;
-      height: 310px;
-  }
+  header { top: 15px !important; right: 15px !important; }
+  .nav-floating { bottom: 16px !important; width: 300px; height: 58px; }
+  .btn { padding: 12px 24px; max-width: 200px; }
+  .buttons { flex-direction: column; align-items: center; }
 }
