@@ -1,57 +1,40 @@
-/* ==================== NAVIGATION FLOTTANTE – ULTRA MODERNE & COMPACT ==================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: #f0f4f8;
-    min-height: 300vh;
-    padding-bottom: 200px;
-    transition: background 0.5s ease;
-    overflow-x: hidden;
-}
-
-body.dark {
-    background: #0f172a;
-}
-
-/* === BARRE FLOTTANTE === */
+/* ==================== NAVIGATION FLOTTANTE – FIXE À VIE ==================== */
 .nav-floating {
-    position: fixed;
-    bottom: 22px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 340px;               /* Réduit de 380 → 340 */
+    position: fixed !important;
+    bottom: 22px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 340px;
     max-width: 90vw;
-    height: 62px;               /* Réduit de 68 → 62 */
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    height: 62px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 38px;
     box-shadow: 
-        0 12px 28px rgba(0, 0, 0, 0.15),
-        0 0 0 2.8px #3b82f6 inset;
-    border: none;
+        0 12px 32px rgba(0, 0, 0, 0.18),
+        0 0 0 3px #3b82f6 inset;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 9999;
     padding: 0 14px;
-    overflow: hidden;
-    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 }
 
 body.dark .nav-floating {
-    background: rgba(15, 23, 42, 0.88);
+    background: rgba(15, 23, 42, 0.92);
     box-shadow: 
-        0 12px 28px rgba(0, 0, 0, 0.45),
-        0 0 0 2.8px #60a5fa inset;
+        0 12px 32px rgba(0, 0, 0, 0.5),
+        0 0 0 3px #60a5fa inset;
 }
 
-/* === LISTE === */
+/* Force le fixage absolu – rien ne peut la bouger */
+.nav-floating * {
+    pointer-events: auto;
+}
+
 .nav-list {
     list-style: none;
     display: flex;
@@ -61,10 +44,8 @@ body.dark .nav-floating {
     align-items: center;
     padding: 0 12px;
     margin: 0;
-    position: relative;
 }
 
-/* === CHAQUE <li> – CENTRAGE PARFAIT === */
 .nav-list li {
     flex: 1;
     display: flex;
@@ -73,102 +54,66 @@ body.dark .nav-floating {
     height: 100%;
 }
 
-/* === LIENS === */
 .nav-link {
     position: relative;
-    width: 44px;                /* Réduit de 48 → 44 */
+    width: 44px;
     height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     color: #64748b;
-    font-size: 19px;           /* Réduit de 22 → 19 */
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 19px;
+    transition: all 0.35s ease;
     cursor: pointer;
-    z-index: 2;
     text-decoration: none;
-    outline: none;
+    z-index: 2;
 }
 
-body.dark .nav-link {
-    color: #94a3b8;
-}
+body.dark .nav-link { color: #94a3b8; }
 
-/* === HOVER – ANIMATION FLUIDE === */
 .nav-link:hover {
-    background: rgba(59, 130, 246, 0.16);
+    background: rgba(59, 130, 246, 0.18);
     color: #3b82f6;
-    transform: translateY(-3px) scale(1.12);
-    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.28);
+    transform: translateY(-3px) scale(1.15);
 }
 
 body.dark .nav-link:hover {
-    background: rgba(96, 165, 250, 0.22);
+    background: rgba(96, 165, 250, 0.25);
     color: #60a5fa;
-    box-shadow: 0 6px 16px rgba(96, 165, 250, 0.32);
 }
 
-/* === ACTIF === */
 .nav-link.active {
     color: #3b82f6;
     font-weight: 700;
 }
 
-body.dark .nav-link.active {
-    color: #60a5fa;
-}
+body.dark .nav-link.active { color: #60a5fa; }
 
-/* === SOULIGNÉ SOUS L’ICÔNE – CENTRÉ, ÉLÉGANT, ANIMÉ === */
 .nav-link.active::after {
     content: '';
     position: absolute;
     bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 26px;               /* Réduit de 28 → 26 */
-    height: 3.5px;
+    width: 26px;
+    height: 3.8px;
     background: linear-gradient(90deg, #3b82f6, #1d4ed8);
-    border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(59, 130, 246, 0.45);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: indicatorPulse 1.8s ease-in-out infinite;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(59, 130, 246, 0.5);
 }
 
 body.dark .nav-link.active::after {
     background: linear-gradient(90deg, #60a5fa, #93c5fd);
-    box-shadow: 0 3px 8px rgba(96, 165, 250, 0.55);
+    box-shadow: 0 3px 10px rgba(96, 165, 250, 0.6);
 }
 
-/* === ANIMATION DU SOULIGNÉ === */
-@keyframes indicatorPulse {
-    0%, 100% { transform: translateX(-50%) scale(1); }
-    50% { transform: translateX(-50%) scale(1.15); }
-}
-
-/* === RESPONSIVE – CENTRAGE PARFAIT SUR TOUS LES ÉCRANS === */
-@media (max-width: 768px) {
-    .nav-floating {
-        width: 320px;
-        height: 60px;
-    }
-    .nav-link {
-        width: 42px;
-        height: 42px;
-        font-size: 18px;
-    }
-    .nav-link.active::after {
-        width: 24px;
-        bottom: 7px;
-    }
-}
-
+/* Responsive parfait */
 @media (max-width: 480px) {
     .nav-floating {
-        width: 290px;
+        width: 300px;
         height: 58px;
-        bottom: 16px;
-        padding: 0 10px;
+        bottom: 16px !important;
     }
     .nav-link {
         width: 40px;
@@ -183,16 +128,7 @@ body.dark .nav-link.active::after {
 
 @media (max-width: 360px) {
     .nav-floating {
-        width: 270px;
+        width: 280px;
         height: 56px;
-    }
-    .nav-link {
-        width: 38px;
-        height: 38px;
-        font-size: 16px;
-    }
-    .nav-link.active::after {
-        width: 20px;
-        bottom: 5px;
     }
 }
