@@ -16,6 +16,8 @@ body.dark {
   --text-light: #ddd;
   --text-muted: #aaa;
   --text-muted-light: #ccc;
+  background: #121212;
+  color: var(--text-light);
 }
 
 /* ==== RÉINITIALISATION ==== */
@@ -37,11 +39,6 @@ body {
   transition: var(--transition);
 }
 
-body.dark {
-  background: #121212;
-  color: var(--text-light);
-}
-
 /* ==== SECTION HOME ==== */
 #home {
   min-height: 90vh;
@@ -52,7 +49,7 @@ body.dark {
   position: relative;
 }
 
-/* Conteneur principal – toujours contenu */
+/* Conteneur principal */
 .home-container {
   display: flex;
   align-items: center;
@@ -74,14 +71,64 @@ body.dark {
   opacity: 0;
 }
 
+/* ==================== NOUVEAU BLOC GREETING FIXE (ANTI-SAUT) ==================== */
 .greeting-text {
   font-size: clamp(26px, 5vw, 36px);
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 16px;
-  white-space: normal;
+  white-space: nowrap;
   overflow: hidden;
+  display: block;
+  
+  /* SOLUTION 100% ANTI-SAUT : on réserve l'espace du texte le plus long */
+  min-height: 1.5em;                    /* Hauteur fixe d'une ligne */
+  height: 1.5em;                        /* Important : hauteur fixe */
+  line-height: 1.5em;
+  position: relative;
 }
+
+/* Le texte qui s'écrit réellement */
+.greeting-text .typing {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Le curseur clignotant */
+.greeting-text .cursor {
+  display: inline-block;
+  margin-left: 3px;
+  font-weight: 300;
+  color: var(--primary);
+  animation: blink 0.9s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Réserve l'espace du texte le plus long (invisible mais présent dans le flux) */
+.greeting-text::before {
+  content: "Bienvenue je suis";   /* Texte FR le plus long */
+  visibility: hidden;
+  height: 0;
+  display: block;
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Version anglaise */
+body[data-lang="en"] .greeting-text::before,
+html[lang="en"] .greeting-text::before {
+  content: "Welcome I am";         /* Texte EN le plus long */
+}
+
+/* ==================== FIN DU BLOC ANTI-SAUT ==================== */
 
 .static-title {
   font-size: clamp(34px, 8vw, 52px);
@@ -190,7 +237,6 @@ body.dark .btn-outline:hover { background: var(--primary-light); color: #121212;
   transform: scale(1.06);
 }
 
-/* Orbite – jamais déborde */
 .tech-orbit {
   position: absolute;
   top: 50%;
