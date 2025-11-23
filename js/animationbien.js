@@ -1,4 +1,4 @@
-// js/animationbien.js – VERSION 2025 PRO : Suivi de souris + mobile parfait
+// js/animationbien.js – VERSION 2025 RAPIDE & RÉACTIVE (suivi souris instantané)
 let pJ = null;
 let mouseX = 0, mouseY = 0;
 let currentX = 0, currentY = 0;
@@ -19,18 +19,18 @@ function initParticles() {
                     : ["#c084fc", "#a78bfa", "#9333ea", "#d8b4fe", "#e9d5ff"]
             },
             shape: { type: "circle" },
-            opacity: { value: isMobile ? 0.9 : 0.7, random: true, anim: { enable: true, speed: 2, opacity_min: 0.35 } },
-            size: { value: isSmall ? 11 : isMobile ? 9 : 5.5, random: true, anim: { enable: true, speed: 3.5, size_min: 2 } },
+            opacity: { value: isMobile ? 0.9 : 0.75, random: true, anim: { enable: true, speed: 2.5, opacity_min: 0.4 } },
+            size: { value: isSmall ? 12 : isMobile ? 10 : 6, random: true, anim: { enable: true, speed: 4.5, size_min: 2.5 } },
             line_linked: {
                 enable: true,
-                distance: isMobile ? 190 : 160,
+                distance: isMobile ? 200 : 170,
                 color: isDark ? "#ff3399" : "#a78bfa",
-                opacity: isMobile ? 0.75 : 0.45,
-                width: isMobile ? 3.2 : 2
+                opacity: isMobile ? 0.8 : 0.5,
+                width: isMobile ? 3.8 : 2.4
             },
             move: {
                 enable: true,
-                speed: isMobile ? 2 : 1.6,
+                speed: isMobile ? 3.2 : 2.4,    // + RAPIDE
                 direction: "none",
                 random: true,
                 straight: false,
@@ -45,8 +45,8 @@ function initParticles() {
                 resize: true
             },
             modes: {
-                bubble: { distance: 220, size: 14, duration: 2 },
-                repulse: { distance: 140, duration: 0.7 }
+                bubble: { distance: 240, size: 16, duration: 1.8 },
+                repulse: { distance: 150, duration: 0.6 }
             }
         },
         retina_detect: true,
@@ -61,7 +61,7 @@ function initParticles() {
     }
 }
 
-// === MOUVEMENT DE LA SOURIS / TOUCHER (MAGNIFIQUE & FLUIDE) ===
+// === MOUVEMENT ULTRA-RAPIDE DE LA SOURIS / TOUCH ===
 function updateMouse(e) {
     if (e.touches) {
         mouseX = e.touches[0].clientX;
@@ -76,17 +76,17 @@ document.addEventListener("mousemove", updateMouse);
 document.addEventListener("touchmove", updateMouse, { passive: true });
 document.addEventListener("touchstart", updateMouse, { passive: true });
 
-// Animation fluide du canvas qui suit la souris
+// Animation ULTRA RÉACTIVE (plus rapide = plus fun)
 function animateCanvas() {
-    // Lissage ultra doux (0.08 = très fluide)
-    currentX += (mouseX - currentX) * 0.08;
-    currentY += (mouseY - currentY) * 0.08;
+    // 0.18 → suit la souris presque instantanément (très nerveux & moderne)
+    currentX += (mouseX - currentX) * 0.18;
+    currentY += (mouseY - currentY) * 0.18;
 
-    const intensity = window.innerWidth <= 768 ? 18 : 32; // Moins fort sur mobile
+    const intensity = window.innerWidth <= 768 ? 22 : 40;
 
     canvas.style.transform = `
-        translate(${currentX * 0.03}px, ${currentY * 0.03}px)
-        scale(${window.innerWidth <= 768 ? 1.05 : 1.03})
+        translate(${currentX * 0.04}px, ${currentY * 0.04}px)
+        scale(${window.innerWidth <= 768 ? 1.06 : 1.04})
     `;
 
     requestAnimationFrame(animateCanvas);
@@ -97,16 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
     initParticles();
     animateCanvas();
 
-    // Thème change → mise à jour instantanée
     new MutationObserver(initParticles).observe(document.body, {
         attributes: true,
         attributeFilter: ["class"]
     });
 
-    // Resize → réinit douce
     let resizeTimer;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(initParticles, 300);
+        resizeTimer = setTimeout(initParticles, 250);
     });
 });
