@@ -303,7 +303,7 @@ body.dark .contact-form {
 .form-group textarea {
     width: 100%;
     padding: 18px 22px;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(208, 200, 224, 0.75);
     border: 2.5px solid transparent;
     border-radius: 18px;
     font-size: 16.5px;
@@ -460,7 +460,7 @@ body.dark .submit-btn {
     transform: translateY(0);
 }
 
-/* ==================== RESPONSIVE – MOBILE FIRST & PARFAIT ==================== */
+/* RESPONSIVE */
 @media (max-width: 1200px) {
     .contact-container {
         grid-template-columns: 1fr;
@@ -543,3 +543,4 @@ body.dark .submit-btn {
     .social-btn { width: 46px; height: 46px; font-size: 18px; }
     .submit-btn { font-size: 16.5px; }
 }
+

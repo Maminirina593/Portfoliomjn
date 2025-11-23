@@ -18,3 +18,43 @@ body.dark #particles-js {
 body:not(.dark) #particles-js {
     background: linear-gradient(135deg, #f0e6ff 0%, #e6ccff 100%);
 }
+/* css/animationbien.css – Particules TRÈS VISIBLES sur mobile */
+#particles-js {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    transition: background 0.8s ease;
+}
+
+/* Mode sombre – violet profond */
+body.dark #particles-js {
+    background: linear-gradient(135deg, #0a001a 0%, #1a0033 60%, #2a0054 100%);
+}
+
+/* Mode clair – violet très doux */
+body:not(.dark) #particles-js {
+    background: linear-gradient(135deg, #f4eaff 0%, #e8d4ff 100%);
+}
+
+/* =================================================== */
+/* FORCE LES PARTICULES À ÊTRE GROSSES SUR MOBILE     */
+/* =================================================== */
+@media (max-width: 768px) {
+    #particles-js canvas {
+        transform: scale(1.4) !important;           /* Zoom forcé sur le canvas */
+        image-rendering: -webkit-optimize-contrast; /* Plus net sur mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    #particles-js canvas {
+        transform: scale(1.7) !important;           /* Encore plus gros sur très petit écran */
+    }
+    
+    body.dark #particles-js {
+        background: linear-gradient(135deg, #0f0025 0%, #1e0040 100%);
+    }
+}
