@@ -44,14 +44,14 @@ body:not(.dark) #particles-js {
 /* =================================================== */
 @media (max-width: 768px) {
     #particles-js canvas {
-        transform: scale(1.4) !important;           /* Zoom forcé sur le canvas */
+        transform: scale(1) !important;           /* Zoom forcé sur le canvas */
         image-rendering: -webkit-optimize-contrast; /* Plus net sur mobile */
     }
 }
 
 @media (max-width: 480px) {
     #particles-js canvas {
-        transform: scale(1.7) !important;           /* Encore plus gros sur très petit écran */
+        transform: scale(1) !important;           /* Encore plus gros sur très petit écran */
     }
     
     body.dark #particles-js {
