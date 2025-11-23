@@ -1,0 +1,128 @@
+/* PRELOADER MJN – VERSION ABSOLUMENT DIVINE 2025 */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #000814;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.8s;
+    font-family: 'SF Pro Display', 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+body:not(.dark) #preloader {
+    background: #f8f9ff;
+}
+
+.preloader-wrapper {
+    text-align: center;
+    position: relative;
+}
+
+.mjn-loader {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 30px;
+}
+
+/* Cercle animé */
+.circle-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circle-track {
+    stroke: currentColor;
+}
+
+.circle-progress {
+    stroke-dasharray: 465;     /* 2 × π × 74 */
+    stroke-dashoffset: 465;
+    transition: stroke-dashoffset 0.1s linear;
+    filter: drop-shadow(0 0 30px #ff00ff);
+}
+
+/* MJN – LETTRES NÉON + GLOW + ANIMATION ÉPIQUE */
+.mjn-letters {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: -3px;
+    pointer-events: none;
+}
+
+.letter {
+    opacity: 0;
+    transform: scale(0.3) translateY(30px);
+    color: #ff00ff;
+    text-shadow: 
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff,
+        0 0 60px #ff00ff,
+        0 0 100px #ff00ff;
+    transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+body:not(.dark) .letter {
+    color: #a78bfa;
+    text-shadow: 
+        0 0 20px #a78bfa,
+        0 0 40px #a78bfa,
+        0 0 60px #a78bfa;
+}
+
+.letter.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Effet de "reveal" lettre par lettre */
+.letter.m.visible { transition-delay: 0.3s; }
+.letter.j.visible { transition-delay: 0.6s; }
+.letter.n.visible { transition-delay: 0.9s; }
+
+/* Compteur ultra classe */
+.loader-counter {
+    font-size: 64px;
+    font-weight: 900;
+    margin: 20px 0;
+    background: linear-gradient(135deg, #ff00ff, #00ffff, #00ff99);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -2px;
+}
+
+body:not(.dark) .loader-counter {
+    background: linear-gradient(135deg, #a78bfa, #7c4dff, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.percent {
+    font-size: 36px;
+    margin-left: 4px;
+}
+
+.loader-subtitle {
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Disparition finale */
+#preloader.done {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}

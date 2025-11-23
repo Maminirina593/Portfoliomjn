@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/chatbot.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/animationbien.css">
+    <link rel="stylesheet" href="css/preloader.css">
 </head>
 <body class="dark" data-lang="fr">
 
@@ -627,8 +628,33 @@
     </ul>
 </nav>
 
+<!-- PRELOADER MJN – VERSION QUI MARCHE À 1000% -->
+<div id="preloader">
+    <div class="preloader-wrapper">
+        <div class="mjn-loader">
+            <svg class="circle-svg" width="160" height="160" viewBox="0 0 160 160">
+                <circle class="circle-track" cx="80" cy="80" r="74" fill="none" stroke="#333" stroke-width="10" opacity="0.15"/>
+                <circle class="circle-progress" cx="80" cy="80" r="74" fill="none" stroke="#ff00ff" 
+                        stroke-width="10" stroke-linecap="round" transform="rotate(-90 80 80)"/>
+            </svg>
+
+            <div class="mjn-letters">
+                <span class="letter">M</span>
+                <span class="letter">J</span>
+                <span class="letter">N</span>
+            </div>
+        </div>
+
+        <div class="loader-counter">
+            <span id="counter">0</span><span class="percent">%</span>
+        </div>
+        <div class="loader-subtitle">Chargement en cours</div>
+    </div>
+</div>
+
 <!-- JS Modules -->
 <script src="js/theme.js"></script>
+<script src="js/preloader.js"></script>
 <script src="js/language.js"></script>
 <script src="js/navigation.js"></script>
 <script src="js/animations.js"></script>
