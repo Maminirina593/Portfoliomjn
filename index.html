@@ -7,11 +7,9 @@
 
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -48,7 +46,7 @@
 
 <main>
 
-    <!-- ==================== SECTION HOME ==================== -->
+<!-- Section Home -->
     <section id="home">
         <div class="home-container">
             <!-- Texte à gauche -->
@@ -85,7 +83,7 @@
         </div>
     </section>
 
-    <!-- ==================== SECTION À PROPOS ==================== -->
+<!-- Section A propos -->
     <section id="about">
         <div class="about-container">
 
@@ -146,7 +144,7 @@
         </div>
     </section>
 
-    <!-- ==================== SECTION ÉDUCATION ==================== -->
+    <!-- Section Education -->
     <section id="education">
         <h2 data-key="education.title">Études & Certificats</h2>
 
@@ -240,7 +238,7 @@
         </div>
     </section>
 
-    <!-- ==================== SECTION COMPÉTENCES ==================== -->
+   <!-- Section competences -->
     <section id="skills">
         <div class="skills-container">
             <h2 data-key="skills.title">Mes compétences</h2>
@@ -373,8 +371,7 @@
             </div>
         </div>
     </section>
-
-   <!-- ==================== SECTION PROJETS ==================== -->
+<!-- Section projet -->
 <section id="projects">
     <div class="projects-container">
         <div class="section-header">
@@ -457,7 +454,7 @@
 
             <!-- Projet 5 (caché) -->
             <div class="project-card hidden">
-                <img src="images/pta.jpg" alt="Planning de travail annuel" class="project-img">
+                <img src="images/PTA2.jpg" alt="Planning de travail annuel" class="project-img">
                 <div class="project-content">
                     <h3>PTA – Planning de travail annuel</h3>
                     <div class="project-tech">
@@ -493,7 +490,7 @@
 
             <!-- ==================== PROJET 7 : CE PORTFOLIO ==================== -->
             <div class="project-card hidden">
-                <img src="images/portfolio.jpg" alt="Portfolio personnel moderne" class="project-img">
+                <img src="images/profilemjn.jpg" alt="Portfolio personnel moderne" class="project-img">
                 <div class="project-content">
                     <h3>Portfolio personnel</h3>
                     <div class="project-tech">
@@ -539,7 +536,7 @@
     </div>
 </section>
 
-    <!-- ==================== SECTION CONTACT ==================== -->
+  <!-- Section contact -->
     <section id="contact">
         <div class="contact-container">
             <div class="contact-info">
@@ -598,7 +595,7 @@
 
 </main>
 
-<!-- ==================== FOOTER ==================== -->
+<!-- Section footer -->
 <footer id="footer">
     <div class="footer-content">
         <p class="copyright">
@@ -628,7 +625,7 @@
     </ul>
 </nav>
 
-<!-- PRELOADER MJN – VERSION QUI MARCHE À 1000% -->
+<!-- PRELOADER MJN  -->
 <div id="preloader">
     <div class="preloader-wrapper">
         <div class="mjn-loader">
@@ -652,6 +649,40 @@
     </div>
 </div>
 
+<!-- CHATBOT ULTRA-MODERNE & PROFESSIONNEL -->
+<div id="chatbot-container">
+    <button id="chatbot-toggle" aria-label="Ouvrir le chatbot">
+      <i class="fas fa-robot"></i>
+      <span class="pulse-ring"></span>
+    </button>
+  
+    <div id="chatbot-window">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar">
+          <img src="images/profile.png" alt="Maminirina Jean Noël" class="profile-img">
+        </div>
+        <div class="chatbot-info">
+          <h3>Maminirina Bot</h3>
+          <p class="status"><span class="online-dot"></span> <span id="bot-status">En ligne</span></p>
+        </div>
+        <button id="chatbot-minimize">
+          <i class="fas fa-minus"></i>
+        </button>
+      </div>
+  
+      <div id="chatbot-messages"></div>
+  
+      <div class="chatbot-input-area">
+        <form id="chatbot-form">
+          <input type="text" id="chatbot-input" placeholder="Posez-moi une question sur Maminirina..." autocomplete="off" required>
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
 <!-- JS Modules -->
 <script src="js/theme.js"></script>
 <script src="js/preloader.js"></script>

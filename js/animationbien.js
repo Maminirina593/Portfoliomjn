@@ -7,8 +7,8 @@ const canvas = document.getElementById("particles-js");
 function initParticles() {
     const isDark = document.body.classList.contains("dark");
     const width = window.innerWidth;
-    const isMobile = width <= 768;
-    const isSmall = width <= 480;
+    const isMobile = width <= 468;
+    const isSmall = width <= 280;
 
     const config = {
         particles: {
@@ -105,6 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let resizeTimer;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(initParticles, 250);
+        resizeTimer = setTimeout(initParticles, 200);
     });
 });

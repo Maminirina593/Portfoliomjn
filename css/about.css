@@ -1,4 +1,4 @@
-/* ==================== ABOUT SECTION – ULTRA MODERNE, RESPONSIVE 100%, TOUT VISIBLE ==================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -454,7 +454,7 @@ body.dark .experience-text {
     .tech-ring i { font-size: 22px; }
 }
 
-/* === FIX ULTIME POUR TRÈS PETITS ÉCRANS === */
+/* FIX ULTIME POUR TRÈS PETITS ÉCRANS */
 @media (max-width: 320px) {
     .about-content h2 { font-size: 30px; }
     .about-content h3 { font-size: 24px; }
