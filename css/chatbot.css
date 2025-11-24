@@ -1,7 +1,7 @@
-/* CHATBOT – ICÔNE À DROITE + FENÊTRE CENTRÉE & ULTRA-COMPACTE SUR MOBILE */
+/* CHATBOT – ICÔNE À DROITE + FENÊTRE CENTRÉE + BOUTON ENVOI TOUJOURS VISIBLE (VERSION FINALE 2025) */
 #chatbot-container {
     position: fixed;
-    bottom: 24px;
+    bottom: 28px;
     right: 20px;
     z-index: 9998;
     font-family: 'Poppins', sans-serif;
@@ -41,14 +41,14 @@
     to { transform: scale(1.6); opacity: 0; }
   }
   
-  /* Fenêtre centrée – taille réduite sur mobile */
+  /* Fenêtre centrée – taille réduite mais fonctionnelle sur mobile */
   #chatbot-window {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.94);
-    width: 380px;           /* Desktop : belle taille */
-    max-width: 92vw;        /* Ne déborde jamais */
+    width: 380px;
+    max-width: 92vw;
     height: 540px;
     max-height: 86vh;
     background: #1a1a2e;
@@ -139,9 +139,9 @@
     border: 1px solid rgba(255,255,255,0.07); 
   }
   
-  /* Formulaire */
+  /* Zone d'entrée – BOUTON ENVOI TOUJOURS VISIBLE */
   .chatbot-input-area {
-    padding: 11px 14px;
+    padding: 12px 14px;
     background: #1a1a2e;
     border-top: 1px solid rgba(255,255,255,0.08);
     flex-shrink: 0;
@@ -149,7 +149,7 @@
   
   #chatbot-form {
     display: flex;
-    gap: 9px;
+    gap: 10px;
     align-items: center;
   }
   
@@ -171,75 +171,107 @@
     box-shadow: 0 0 0 3px rgba(118,75,162,0.2);
   }
   
+  /* BOUTON ENVOI – TOUJOURS LÀ, MÊME SUR PETIT MOBILE */
   #chatbot-form button {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: #fff;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 17px;
+    font-size: 18px;
     flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(102,126,234,0.4);
+    box-shadow: 0 4px 14px rgba(102,126,234,0.45);
     transition: transform 0.3s;
+    min-width: 44px;   /* Empêche la disparition */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  #chatbot-form button:hover { transform: scale(1.1); }
+  #chatbot-form button:hover {
+    transform: scale(1.1);
+  }
   
-  /* RESPONSIVE MOBILE – TAILLE RÉDUITE + PLEIN ÉCRAN PROPER */
+  /* RESPONSIVE MOBILE – TOUT FONCTIONNE PARFAITEMENT */
   @media (max-width: 768px) {
     #chatbot-container {
-      bottom:4px;
+      bottom: 90px;
+      right: 18px;
     }
   
     #chatbot-toggle {
       width: 58px;
-     вичай height: 58px;
+      height: 58px;
       font-size: 27px;
     }
   
-    /* Fenêtre réduite avant ouverture */
+    /* Fenêtre réduite mais PROPRE */
     #chatbot-window {
-      width: 240px;        /* Plus petite sur tablette/mobile */
-      height: é80px;
-      max-width: 70vw;
-      max-height: 60vh;
+      width: 340px;
+      height: 520px;
+      max-width: 90vw;
+      max-height: 82vh;
     }
   
-    /* À l’ouverture → plein écran propre */
+    /* À l’ouverture → plein écran parfait */
     #chatbot-window.open {
-      width: 70vw !important;
-      height: 70dvh !important;
-      max-width: none !important;
-      max-height: none !important;
+      width: 100vw !important;
+      height: 100dvh !important;
       top: 0 !important;
       left: 0 !important;
       transform: none !important;
       border-radius: 0 !important;
     }
   
-    .chatbot-input-area { padding: 9px 12px; }
-    #chatbot-input { padding: 10px 14px; font-size: 15px; border-radius: 22px; }
-    #chatbot-form button { width: 44px; height: 44px; }
-    .chatbot-header { padding: 10px 12px; }
-    #chatbot-messages { padding: 8px; gap: 9px; }
+    /* Input + bouton bien visibles */
+    .chatbot-input-area {
+      padding: 11px 14px;
+    }
+  
+    #chatbot-input {
+      padding: 11px 16px;
+      font-size: 15px;
+    }
+  
+    #chatbot-form button {
+      width: 48px;
+      height: 48px;
+      font-size: 19px;
+    }
   }
   
   @media (max-width: 480px) {
-    #chatbot-container { bottom: 62px; right: 10px; }
-    #chatbot-toggle { width: 36px; height: 36px; }
+    #chatbot-container {
+      bottom: 94px;
+      right: 16px;
+    }
+  
+    #chatbot-toggle {
+      width: 56px;
+      height: 56px;
+    }
   
     #chatbot-window {
-      width: 100px;        /* Encore plus petit sur petit mobile */
-      height: 200px;
+      width: 320px;
+      height: 500px;
+    }
+  
+    #chatbot-form button {
+      width: 46px;
+      height: 46px;
+      font-size: 18px;
     }
   }
   
   @media (max-width: 360px) {
-    #chatbot-container { bottom: 96px; }
+    #chatbot-container {
+      bottom: 98px;
+    }
+  
     #chatbot-window {
-      width: 100px;
-      height: 40px;
+      width: 300px;
+      height: 480px;
     }
   }
