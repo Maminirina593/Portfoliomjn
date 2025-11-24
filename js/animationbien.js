@@ -122,7 +122,7 @@ function animateCanvas() {
 
     // Glow suit la souris
     if (!isMobile) {
-        glow.style.transform = `translate(${mouseX - 150}px, ${mouseY - 150}px)`;
+        glow.style.transform = `translate(${mouseX - 110}px, ${mouseY - 120}px)`;
     }
 
     requestAnimationFrame(animateCanvas);
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-            isMobile = window.innerWidth <= 768;
+            isMobile = window.innerWidth <= 468;
             initParticles();
         }, 300);
     });
