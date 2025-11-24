@@ -1,4 +1,4 @@
-// js/chatbot.js → VERSION TRÈS INTELLIGENTE, FORMELLE ET PROFESSIONNELLE
+// js/chatbot.js → DÉTECTION AUTOMATIQUE FR/EN + RÉPONSES PARFAITES
 document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.getElementById("chatbot-toggle");
     const win = document.getElementById("chatbot-window");
@@ -8,34 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("chatbot-form");
     const botStatus = document.getElementById("bot-status");
   
-    let currentLang = document.body.dataset.lang || "fr";
+    let currentLang = document.body.dataset.lang || "fr"; // langue du site
     let responses = {};
   
-    // Mise à jour statut selon langue
     const updateStatus = () => {
       botStatus.textContent = currentLang === "fr" ? "En ligne" : "Online";
     };
     updateStatus();
   
-    // Synchronisation langue du site
-    const langSelect = document.getElementById("lang-select");
-    if (langSelect) {
-      langSelect.addEventListener("change", (e) => {
-        currentLang = e.target.value;
-        updateStatus();
-        if (win.classList.contains("open") && messages.children.length > 0) {
-          addMessage("bot", currentLang === "fr" 
-            ? "La langue a été changée en français. Comment puis-je vous aider ?" 
-            : "Language switched to English. How may I assist you?");
-        }
-      });
-    }
-  
-    // Chargement des réponses intelligentes
+    // Chargement des réponses
     fetch("js/chat-data-intelligent.json")
       .then(r => r.json())
-      .then(data => { responses = data; })
-      .catch(() => console.error("Erreur JSON chatbot"));
+      .then(data => {
+        responses = data;
+        console.log("Maminirina Bot → Chargé & prêt (détection auto FR/EN)");
+      });
   
     const addMessage = (sender, text) => {
       const div = document.createElement("div");
@@ -46,14 +33,29 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   
     const greet = () => {
-      const greeting = responses[currentLang]["bonjour|salut|hello|hi|bonsoir"] 
-        || (currentLang === "fr" ? "Bonjour et bienvenue !" : "Good morning and welcome!");
+      const greeting = responses[currentLang]["bonjour|salut|hello|hi|bonsoir"] ||
+        (currentLang === "fr" ? "Bonjour et bienvenue !" : "Hello and welcome!");
       addMessage("bot", greeting);
+    };
+  
+    // FONCTION MAGIQUE : DÉTECTE SI LA QUESTION EST EN ANGLAIS
+    const detectEnglish = (text) => {
+      const englishWords = /\b(hello|hi|hey|how|what|where|when|why|who|you|your|project|skill|experience|cv|available|english|thank|yes|no|please|contact|github|linkedin)\b/i;
+      const frenchWords = /\b(bonjour|salut|merci|oui|non|projet|compétence|expérience|cv|disponible|contact|anglais|s'il vous plaît)\b/i;
+  
+      const hasEnglish = englishWords.test(text);
+      const hasFrench = frenchWords.test(text);
+  
+      if (hasEnglish && !hasFrench) return "en";
+      if (hasFrench && !hasEnglish) return "fr";
+      return currentLang; // par défaut, garde la langue du site
     };
   
     toggle.onclick = () => {
       win.classList.toggle("open");
-      if (win.classList.contains("open") && messages.children.length === 0) greet();
+      if (win.classList.contains("open") && messages.children.length === 0) {
+        setTimeout(greet, 400);
+      }
     };
   
     minimize.onclick = () => win.classList.remove("open");
@@ -66,21 +68,45 @@ document.addEventListener("DOMContentLoaded", () => {
       addMessage("user", q);
       input.value = "";
   
-      const lower = q.toLowerCase();
-      let reply = responses[currentLang].default;
+      // DÉTECTION AUTOMATIQUE DE LA LANGUE DE LA QUESTION
+      const detectedLang = detectEnglish(q);
+      const prevLang = currentLang;
+      if (detectedLang !== currentLang) {
+        currentLang = detectedLang;
+        updateStatus();
+        // Optionnel : notifier le changement
+        // addMessage("bot", currentLang === "fr" ? "Passage en français" : "Switching to English");
+      }
+  
+      const lower = q.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      let reply = responses[currentLang].default || "Merci pour votre message !";
   
       for (const key in responses[currentLang]) {
         const keys = key.split("|");
-        if (keys.some(k => lower.includes(k))) {
+        if (keys.some(k => lower.includes(k.toLowerCase()))) {
           reply = responses[currentLang][key];
           break;
         }
       }
   
-      setTimeout(() => addMessage("bot", reply), 600);
+      // Temps de réponse naturel
+      setTimeout(() => addMessage("bot", reply), 500 + Math.random() * 600);
     };
   
+    // Entrée clavier
     input.addEventListener("keypress", e => {
-      if (e.key === "Enter") form.dispatchEvent(new Event("submit"));
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        form.dispatchEvent(new Event("submit"));
+      }
     });
+  
+    // Synchronisation avec le sélecteur de langue du site
+    const langSelect = document.getElementById("lang-select");
+    if (langSelect) {
+      langSelect.addEventListener("change", (e) => {
+        currentLang = e.target.value;
+        updateStatus();
+      });
+    }
   });
