@@ -308,6 +308,7 @@ body.dark .education-card.cert {
         gap: 70px;
     }
     .education-column {
+        min-width: 0;
         max-width: 700px;
         width: 100%;
     }
