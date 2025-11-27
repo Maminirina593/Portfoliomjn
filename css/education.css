@@ -343,7 +343,7 @@ body.dark .education-card.cert {
         gap: 8px;
     }
     .edu-tags span {
-        padding: 7px 14px;
+        padding: 6px 12px;
     }
 }
 
@@ -353,6 +353,6 @@ body.dark .education-card.cert {
     }
     .edu-tags span {
         font-size: 12px;
-        padding: 6px 12px;
+        padding: 6px 9px;
     }
 }
