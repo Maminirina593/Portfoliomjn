@@ -255,21 +255,21 @@
 /* Responsive parfait */
 
 @media (max-width: 480px) {
- 
+  /* 1. Conteneur (positionné en HAUT à Droite à environ 40px/4cm du bord supérieur) */
   #chatbot-container { 
-      bottom: auto; 
-      top: 30px;    /* 20px du haut */
+      bottom: auto; /* Annule la position par défaut en bas */
+      top: 670px;    /* Positionné à 40px du haut (environ 4cm) */
       right: 20px;  /* 20px de la droite */
   }
 
-  /* 2. Bouton d'ouverture (Réduction de la taille sur mobile) */
+  /* 2. Bouton d'ouverture (Taille réduite pour mobile à 40px) */
   #chatbot-toggle {
-      width: 30px;      /* Taille réduite de 68px à 50px */
-      height: 30px;     /* Taille réduite */
+      width: 40px;      /* Taille réduite pour meilleure ergonomie (plus grand que 30px) */
+      height: 40px;     /* Taille réduite */
       font-size: 20px;  /* Icône plus petite */
-      box-shadow: var(--shadow-sm); /* Ombre plus discrète */
+      box-shadow: var(--shadow-sm); 
       
-      /* Ces propriétés garantissent qu'il utilise la position du conteneur parent */
+      /* Assure que la bulle utilise la position du conteneur parent */
       position: relative; 
       bottom: auto; 
       right: auto;
@@ -278,14 +278,14 @@
   /* 3. Fenêtre du Chat (Pleine écran sur mobile) */
   #chatbot-window {
       width: 100vw;
-      height: 100dvh; /* Hauteur dynamique pour mieux gérer les barres de navigation */
+      height: 100dvh; 
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       border-radius: 0;
       border: none;
-      /* Utilise l'animation slideDown qui vient du haut (nécessite d'ajouter la keyframe @keyframes slideDown dans le code complet) */
+      /* Utilise l'animation slideDown qui vient du haut */
       animation: slideDown 0.6s ease-out forwards;
   }
 }
