@@ -1,11 +1,16 @@
 /* ============================================================= */
-/* EDUCATION SECTION – 2025 DARK/LIGHT + MOBILE PRO (~380 lignes) */
+/* EDUCATION SECTION – 2025 DARK/LIGHT + MOBILE FIXÉ 100%        */
 /* ============================================================= */
+
+/* Reset de base pour éviter tout débordement */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 #education {
     padding: 140px 5vw 120px;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Empêche tout débordement */
     background: linear-gradient(135deg, #f8f9ff 0%, #e6eafc 100%);
     isolation: isolate;
 }
@@ -14,7 +19,7 @@ body.dark #education {
     background: linear-gradient(135deg, #0d0d1f 0%, #1a1a2e 100%);
 }
 
-/* Fond animé subtil (seulement en dark pour plus de classe) */
+/* Fond animé subtil */
 #education::before {
     content: '';
     position: absolute;
@@ -32,8 +37,8 @@ body.dark #education::before {
 }
 
 @keyframes floatBg {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(30px, -30px) scale(1.05); }
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(30px,-30px) scale(1.05); }
 }
 
 /* Titre principal */
@@ -46,9 +51,7 @@ body.dark #education::before {
     position: relative;
 }
 
-body.dark #education h2 {
-    color: #f0f0ff;
-}
+body.dark #education h2 { color: #f0f0ff; }
 
 #education h2::after {
     content: '';
@@ -60,16 +63,17 @@ body.dark #education h2 {
     height: 6px;
     background: linear-gradient(90deg, #8a2be2, #ff00ff);
     border-radius: 4px;
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+    box-shadow: 0 0 20px rgba(138,43,226,0.5);
 }
 
 /* Conteneur principal */
 .education-container {
     max-width: 1500px;
     margin: 0 auto;
+    padding: 0 15px; /* Sécurité sur très petits écrans */
     display: flex;
-    gap: clamp(40px, 6vw, 90px);
     flex-wrap: wrap;
+    gap: clamp(40px, 6vw, 90px);
     justify-content: center;
     align-items: flex-start;
 }
@@ -77,8 +81,9 @@ body.dark #education h2 {
 /* Colonnes */
 .education-column {
     flex: 1;
-    min-width: 320px;
+    min-width: 300px; /* plus souple que 320px */
     max-width: 680px;
+    width: 100%;
 }
 
 .education-column h3 {
@@ -93,9 +98,7 @@ body.dark #education h2 {
     gap: 14px;
 }
 
-body.dark .education-column h3 {
-    color: #bb86fc;
-}
+body.dark .education-column h3 { color: #bb86fc; }
 
 .education-column h3 i {
     font-size: clamp(30px, 4.5vw, 40px);
@@ -111,39 +114,40 @@ body.dark .education-column h3 {
     gap: 32px;
 }
 
-/* Card principale */
+/* CARD – FIX DÉBORDEMENT MOBILE */
 .education-card {
-    background: rgba(255, 255, 255, 0.18);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto; /* centré et évite débordement */
+    background: rgba(255,255,255,0.18);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-radius: 28px;
     padding: clamp(28px, 5vw, 40px);
     position: relative;
     overflow: hidden;
-    border: 1.5px solid rgba(138, 43, 226, 0.2);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    transform: translateY(30px);
-    opacity: 0;
+    border: 1.5px solid rgba(138,43,226,0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transition: all 0.6s cubic-bezier(0.23,1,0.32,1);
 }
 
 body.dark .education-card {
-    background: rgba(30, 30, 60, 0.35);
-    border-color: rgba(138, 43, 226, 0.4);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    background: rgba(30,30,60,0.35);
+    border-color: rgba(138,43,226,0.4);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 .education-card:hover {
     transform: translateY(-16px);
-    box-shadow: 0 30px 60px rgba(138, 43, 226, 0.25);
-    border-color: rgba(255, 0, 255, 0.6);
+    box-shadow: 0 30px 60px rgba(138,43,226,0.25);
+    border-color: rgba(255,0,255,0.6);
 }
 
 body.dark .education-card:hover {
-    box-shadow: 0 30px 70px rgba(138, 43, 226, 0.4);
+    box-shadow: 0 30px 70px rgba(138,43,226,0.4);
 }
 
-/* Bordure animée au hover */
+/* Bordure animée hover */
 .education-card::before {
     content: '';
     position: absolute;
@@ -156,15 +160,13 @@ body.dark .education-card:hover {
     transition: transform 0.6s ease;
 }
 
-.education-card:hover::before {
-    transform: scaleX(1);
-}
+.education-card:hover::before { transform: scaleX(1); }
 
 /* Icône */
 .edu-icon {
     width: clamp(70px, 12vw, 90px);
     height: clamp(70px, 12vw, 90px);
-    background: rgba(138, 43, 226, 0.18);
+    background: rgba(138,43,226,0.18);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -172,33 +174,29 @@ body.dark .education-card:hover {
     margin: 0 auto 24px;
     font-size: clamp(32px, 6vw, 42px);
     color: #8a2be2;
-    border: 3px solid rgba(138, 43, 226, 0.3);
+    border: 3px solid rgba(138,43,226,0.3);
     transition: all 0.6s ease;
     animation: float 6s ease-in-out infinite;
 }
 
 body.dark .edu-icon {
-    background: rgba(138, 43, 226, 0.25);
+    background: rgba(138,43,226,0.25);
     color: #bb86fc;
-    border-color: rgba(187, 134, 252, 0.5);
+    border-color: rgba(187,134,252,0.5);
 }
 
 .education-card:hover .edu-icon {
     transform: scale(1.2) rotate(360deg);
-    background: rgba(138, 43, 226, 0.4);
-    box-shadow: 0 0 30px rgba(138, 43, 226, 0.6);
+    background: rgba(138,43,226,0.4);
+    box-shadow: 0 0 30px rgba(138,43,226,0.6);
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
+    0%,100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
-/* Contenu */
-.edu-content {
-    text-align: center;
-}
-
+/* Contenu texte */
 .edu-content h4 {
     font-size: clamp(19px, 4vw, 24px);
     font-weight: 800;
@@ -207,31 +205,13 @@ body.dark .edu-icon {
     line-height: 1.3;
 }
 
-body.dark .edu-content h4 {
-    color: #f0f0ff;
-}
+body.dark .edu-content h4 { color: #f0f0ff; }
 
-.edu-period {
-    font-size: 15px;
-    font-weight: 700;
-    color: #8a2be2;
-    margin: 0 0 6px;
-}
+.edu-period   { font-size: 15px; font-weight: 700; color: #8a2be2; margin-bottom: 6px; }
+body.dark .edu-period { color: #bb86fc; }
 
-body.dark .edu-period {
-    color: #bb86fc;
-}
-
-.edu-school {
-    font-size: 16px;
-    font-weight: 600;
-    color: #555;
-    margin: 0 0 14px;
-}
-
-body.dark .edu-school {
-    color: #ccc;
-}
+.edu-school   { font-size: 16px; font-weight: 600; color: #555; margin-bottom: 14px; }
+body.dark .edu-school { color: #ccc; }
 
 .edu-desc {
     font-size: clamp(14.5px, 3.5vw, 15.8px);
@@ -241,9 +221,7 @@ body.dark .edu-school {
     opacity: 0.92;
 }
 
-body.dark .edu-desc {
-    color: #ddd;
-}
+body.dark .edu-desc { color: #ddd; }
 
 /* Tags */
 .edu-tags {
@@ -256,47 +234,40 @@ body.dark .edu-desc {
 
 .edu-tags span {
     font-size: clamp(12px, 2.8vw, 13.5px);
-    background: rgba(138, 43, 226, 0.12);
+    background: rgba(138,43,226,0.12);
     color: #8a2be2;
     padding: 8px 16px;
     border-radius: 50px;
     font-weight: 600;
-    border: 1.5px solid rgba(138, 43, 226, 0.3);
+    border: 1.5px solid rgba(138,43,226,0.3);
     transition: all 0.4s ease;
+    white-space: nowrap; /* évite coupure bizarre */
 }
 
 body.dark .edu-tags span {
-    background: rgba(138, 43, 226, 0.2);
+    background: rgba(138,43,226,0.2);
     color: #bb86fc;
-    border-color: rgba(187, 134, 252, 0.5);
+    border-color: rgba(187,134,252,0.5);
 }
 
 .edu-tags span:hover {
     background: #8a2be2;
     color: white;
     transform: translateY(-4px) scale(1.08);
-    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4);
+    box-shadow: 0 8px 20px rgba(138,43,226,0.4);
 }
 
 /* Certificats */
 .education-card.cert {
     border-style: dashed;
-    border-color: rgba(138, 43, 226, 0.4);
-    background: rgba(138, 43, 226, 0.05);
+    background: rgba(138,43,226,0.05);
 }
 
 body.dark .education-card.cert {
-    background: rgba(138, 43, 226, 0.1);
-    border-color: rgba(187, 134, 252, 0.5);
+    background: rgba(138,43,226,0.1);
 }
 
-.education-card.cert .edu-icon {
-    background: rgba(0, 212, 255, 0.18);
-    color: #00d4ff;
-    border-color: rgba(0, 212, 255, 0.4);
-}
-
-/* RESPONSIVE ULTRA PRO */
+/* RESPONSIVE PARFAIT – PLUS AUCUN DÉBORDEMENT */
 @media (max-width: 1200px) {
     .education-container { gap: 60px; }
 }
@@ -306,53 +277,73 @@ body.dark .education-card.cert {
         flex-direction: column;
         align-items: center;
         gap: 70px;
+        padding: 0 10px;
     }
     .education-column {
         min-width: 0;
-        max-width: 700px;
         width: 100%;
     }
 }
 
 @media (max-width: 768px) {
     #education {
-        padding: 110px 5vw 90px;
+        padding: 100px 4vw 80px;
     }
-    #education h2 {
-        margin-bottom: 70px;
+    #education h2 { margin-bottom: 60px; }
+    .education-card {
+        padding: 26px 18px;
+        border-radius: 22px;
     }
 }
 
 @media (max-width: 576px) {
     #education {
-        padding: 90px 4vw 80px;
-    }
-    #education h2 {
-        margin-bottom: 60px;
+        padding: 90px 3vw 70px;
     }
     .education-card {
-        padding: 28px 20px;
-        border-radius: 24px;
+        padding: 24px 16px;
+        border-radius: 20px;
     }
     .edu-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 32px;
+        width: 68px;
+        height: 68px;
+        font-size: 30px;
     }
-    .edu-tags {
-        gap: 8px;
+    .edu-tags { gap: 7px; }
+    .edu-tags span { padding: 6px 12px; }
+}
+
+@media (max-width: 400px) {
+    .education-container { padding: 0 8px; }
+    .education-card {
+        padding: 22px 14px;
+        border-radius: 18px;
+    }
+    .edu-icon {
+        width: 62px;
+        height: 62px;
+        font-size: 28px;
     }
     .edu-tags span {
-        padding: 6px 12px;
+        font-size: 12.5px;
+        padding: 5px 10px;
     }
 }
 
-@media (max-width: 380px) {
-    .edu-content h4 {
-        font-size: 19px;
+@media (max-width: 340px) {
+    #education { padding: 80px 2vw 60px; }
+    .education-card {
+        padding: 20px 12px;
+        border-radius: 16px;
     }
+    .edu-icon {
+        width: 58px;
+        height: 58px;
+        font-size: 26px;
+    }
+    .edu-content h4 { font-size: 18px; }
     .edu-tags span {
         font-size: 12px;
-        padding: 6px 9px;
+        padding: 5px 9px;
     }
 }

@@ -382,7 +382,7 @@
         <div class="projects-grid" id="projects-grid">
             <!-- Projet 1 -->
             <div class="project-card">
-                <img src="images/gstock.png" alt="Application de gestion de stock" class="project-img">
+                <img src="images/Gsctock.jpg" alt="Application de gestion de stock" class="project-img">
                 <div class="project-content">
                     <h3>Gestion de stock</h3>
                     <div class="project-tech">
@@ -649,7 +649,7 @@
     </div>
 </div>
 
-<!-- CHATBOT ULTRA-MODERNE & PROFESSIONNEL -->
+<!-- CHATBOT -->
 <div id="chatbot-container">
     <button id="chatbot-toggle" aria-label="Ouvrir le chatbot">
       <i class="fas fa-robot"></i>
@@ -665,24 +665,26 @@
           <h3>Maminirina Bot</h3>
           <p class="status"><span class="online-dot"></span> <span id="bot-status">En ligne</span></p>
         </div>
-        <button id="chatbot-minimize">
+        <button id="chatbot-minimize" aria-label="Réduire">
           <i class="fas fa-minus"></i>
         </button>
       </div>
   
-      <div id="chatbot-messages"></div>
+      <div id="chatbot-messages">
+        <!-- Messages dynamiques ici -->
+      </div>
   
       <div class="chatbot-input-area">
         <form id="chatbot-form">
           <input type="text" id="chatbot-input" placeholder="Posez-moi une question sur Maminirina..." autocomplete="off" required>
-          <button type="submit">
+          <button type="submit" aria-label="Envoyer">
             <i class="fas fa-paper-plane"></i>
           </button>
         </form>
       </div>
     </div>
   </div>
-  
+
 <!-- JS Modules -->
 <script src="js/theme.js"></script>
 <script src="js/preloader.js"></script>

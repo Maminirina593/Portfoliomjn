@@ -1,59 +1,71 @@
+/* ===================================================== */
+/*       FOND PARTICULES – VERSION PRO 2025 (À COPIER-COLLER)     */
+/* ===================================================== */
+
 #particles-js {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
     pointer-events: none;
-    transition: background 0.6s ease;
+    transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Fond très sombre et profond mais pas noir pur → plus doux pour les yeux */
 }
 
-/* Mode sombre (par défaut) → violet profond */
+/* ===================== MODE SOMBRE (par défaut) ===================== */
 body.dark #particles-js {
-    background: linear-gradient(135deg, #0a001a 0%, #1a0033 50%, #2a0054 100%);
+    background: linear-gradient(
+        135deg,
+        #0b0717 0%,
+        #120d24 35%,
+        #1a0f2e 65%,
+        #140b28 100%
+    );
+    /* Ultra profond, zéro fatigue visuelle, parfait pour les particules violettes/indigo */
 }
 
-/* Mode clair → fond clair avec particules discrètes mais élégantes */
+/* ===================== MODE CLAIR ===================== */
 body:not(.dark) #particles-js {
-    background: linear-gradient(135deg, #f0e6ff 0%, #e6ccff 100%);
-}
-/* css/animationbien.css – Particules TRÈS VISIBLES sur mobile */
-#particles-js {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    transition: background 0.8s ease;
+    background: linear-gradient(
+        135deg,
+        #f8f6ff 0%,
+        #ede9ff 40%,
+        #e0d9ff 100%
+    );
+    /* Violet très clair, doux et moderne – zéro agressivité */
 }
 
-/* Mode sombre – violet profond */
-body.dark #particles-js {
-    background: linear-gradient(135deg, #0a001a 0%, #1a0033 60%, #2a0054 100%);
-}
-
-/* Mode clair – violet très doux */
-body:not(.dark) #particles-js {
-    background: linear-gradient(135deg, #f4eaff 0%, #e8d4ff 100%);
-}
-
-
-/* FORCE LES PARTICULES À ÊTRE GROSSES SUR MOBILE     */
-
+/* ===================== OPTIMISATION MOBILE (particules bien visibles sans être criardes) ===================== */
 @media (max-width: 768px) {
     #particles-js canvas {
-        transform: scale(1) !important;           
-        image-rendering: -webkit-optimize-contrast; 
+        transform: scale(1) !important;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+
+    body.dark #particles-js {
+        background: linear-gradient(
+            135deg,
+            #0d081c 0%,
+            #140e28 50%,
+            #180d30 100%
+        );
+        /* Encore + profond sur mobile → sensation premium */
     }
 }
 
 @media (max-width: 480px) {
     #particles-js canvas {
-        transform: scale(1) !important;           /* Encore plus gros sur très petit écran */
+        transform: scale(1.05) !important; /* Légère augmentation de densité sur très petit écran */
     }
-    
+
     body.dark #particles-js {
-        background: linear-gradient(135deg, #0f0025 0%, #1e0040 100%);
+        background: linear-gradient(135deg, #0a0618 0%, #120924 100%);
+    }
+
+    body:not(.dark) #particles-js {
+        background: linear-gradient(135deg, #fbf9ff 0%, #eee8ff 100%);
     }
 }

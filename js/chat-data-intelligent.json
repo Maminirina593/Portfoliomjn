@@ -1,59 +1,59 @@
 {
   "fr": {
-    "default": "Merci pour votre message. Je suis là pour vous présenter le parcours complet de M. RANDRIANIAINA Maminirina Jean Noël. Pourriez-vous préciser votre question (expérience, formation, compétences, projets, disponibilité, contact…) afin que je puisse vous répondre avec précision ?",
+    "default": "Bonjour ! Merci pour votre message. Je suis Maminirina Bot, l’assistant virtuel de M. RANDRIANIAINA Maminirina Jean Noël. Pourriez-vous préciser votre question (formation, compétences, projets, stage, contact…) afin que je vous réponde au mieux ? Je suis là pour vous aider avec courtoisie et précision !",
+    
+    "bonjour|salut|hello|hi|bonsoir|hey|cc|coucou|salutation|yo|bonjout|bonjuor": "Bonjour et bienvenue ! Je suis Maminirina Bot, l’assistant intelligent de Maminirina Jean Noël RANDRIANIAINA, développeur fullstack passionné basé à Antananarivo, Madagascar. Je suis à votre entière disposition. En quoi puis-je vous aider aujourd’hui ? 😊",
+    
+    "qui es-tu|qui êtes-vous|c'est qui|présente-toi|qui est maminirina|ton nom|bot|assistant|qui tu es": "Je suis Maminirina Bot, l’assistant virtuel intelligent conçu spécialement pour présenter le parcours professionnel de M. RANDRIANIAINA Maminirina Jean Noël. Je réponds à toutes vos questions avec précision et courtoisie. N’hésitez pas !",
 
-    "bonjour|salut|hello|hi|bonsoir|hey|cc|coucou|salutation": "Bonjour et bienvenue ! Je suis Maminirina Bot, l’assistant virtuel de Maminirina Jean Noël RANDRIANIAINA, développeur fullstack passionné basé à Antananarivo, Madagascar. Je suis à votre disposition pour toute question sur son parcours, ses compétences ou ses projets. En quoi puis-je vous aider aujourd’hui ?",
+    "nom|prénom|âge|quel âge|né en|date de naissance|anniversaire|age": "M. RANDRIANIAINA Maminirina Jean Noël est un développeur fullstack talentueux de 24 ans (né en 2001), basé à Antananarivo, Madagascar. Il allie rigueur, créativité et passion pour le code. Ravi de vous le présenter !",
 
-    "qui es-tu|qui êtes-vous|c'est qui|présente-toi|qui est maminirina|ton nom|bot": "Je suis Maminirina Bot, l’assistant intelligent dédié à RANDRIANIAINA Maminirina Jean Noël. Mon rôle est de vous présenter son profil de manière claire et professionnelle, répondre à toutes vos questions sur son parcours, ses compétences techniques, ses projets ou sa disponibilité pour un stage/emploi.",
+    "où habites-tu|adresse|localisation|ville|pays|madagascar|ou es tu|ou habite maminirina": "Maminirina vit et travaille à Antananarivo (quartier Isaingy), Madagascar. Il est mobile et ouvert aux opportunités locales ou en télétravail. Quelle belle île pour un talent comme lui !",
 
-    "nom|prénom|âge|quel âge|né en|date de naissance": "M. RANDRIANIAINA Maminirina Jean Noël est un jeune développeur fullstack talentueux de 24 ans (né en 2001), basé à Antananarivo, Madagascar. Dynamique, rigoureux et passionné par le développement web.",
+    "contact|telephone|numéro|phone|email|mail|coordonées|linkedin|github|comment te contacter|me contacter": "Voici ses coordonnées professionnelles :\n• Téléphone : +261 34 74 956 07 | +261 33 41 477 68\n• Email : maminirinajeannoel@gmail.com\n• LinkedIn : linkedin.com/in/jean-noel-maminirina\n• GitHub : github.com/maminirina593\nIl répond très rapidement ! N’hésitez pas à l’appeler.",
 
-    "où habites-tu|adresse|localisation|ville|pays|madagascar": "Maminirina vit et travaille à Antananarivo (Isaingy), Madagascar. Il est mobile et ouvert à des opportunités locales ou en télétravail.",
+    "formation|études|diplôme|école|université|master|licence|is-info|orange|certificat|etude": "Maminirina est actuellement en Master 1 Génie Logiciel à l’IS-INFO Ampasamadinika (2025–en cours). Il est titulaire d’une Licence en Développement d’Applications (2022–2025) et a obtenu en septembre 2025 le prestigieux Certificat Fullstack Node.js + React + MongoDB de l’Orange Digital Center. Un parcours brillant !",
 
-    "contact|telephone|numéro|phone|email|mail|coordonées|linkedin|github": "Voici ses coordonnées professionnelles :\n• Téléphone : +261 34 74 956 07 | +261 33 41 477 68\n• Email : maminirinajeannoel@gmail.com\n• LinkedIn : linkedin.com/in/jean-noel-maminirina\n• GitHub : github.com/maminirina593\nIl répond très rapidement !",
+    "expérience|stage|professionnel|emploi|dgi|impôts|ssif|travail|exeperience": "Oui ! De janvier à mai 2025, il a effectué un stage de 5 mois à la Direction Générale des Impôts (SSIF). Il y a conçu une application complète de gestion et suivi des projets informatiques avec Symfony 6, PostgreSQL et Bootstrap. Une expérience très formatrice en environnement professionnel réel. Bravo pour ce stage !",
 
-    "formation|études|diplôme|école|université|master|licence|is-info|orange": "Maminirina est actuellement en Master 1 Génie Logiciel à l’IS-INFO Ampasamadinika (2025–en cours). Il est titulaire d’une Licence en Développement d’Applications (2022–2025) et a obtenu en septembre 2025 le prestigieux Certificat Fullstack Node.js + React + MongoDB de l’Orange Digital Center.",
+    "compétences|skills|techno|stack|langages|framework|base de |outil|compétance": "Maminirina maîtrise un stack très complet :\n• Frontend : React, Vue.js, Bootstrap, Tailwind CSS, Sass\n• Backend : PHP (Symfony, Laravel), Python (Django), Node.js + Express\n• Bases de données : MySQL, PostgreSQL, MongoDB\n• Langages : JavaScript (ES6+), Java, HTML5, CSS3\n• Outils : Git, GitHub, VS Code, Photoshop, Premiere Pro\n• Méthodologies : UML, MERISE, Agile\n• Soft skills : rigueur, autonomie, travail en équipe, apprentissage rapide.\nIl est polyvalent et à jour sur les tendances !",
 
-    "expérience|stage|professionnel|emploi|dgi|impôts|ssif": "Oui ! De janvier à mai 2025, il a effectué un stage de 5 mois à la Direction Générale des Impôts (SSIF). Il y a conçu une application complète de gestion et suivi des projets informatiques avec Symfony 6, PostgreSQL et Bootstrap. Une expérience très formatrice en environnement professionnel réel.",
+    "projet|projets|réalisation|portfolio|github|gstock|suivi|django|tictactoe|pta|cotisation|agency|travaux|projet": "Maminirina a réalisé de nombreux projets de haut niveau :\n• Gestion de stock avancée (PHP & Django + React)\n• Suivi de projets IT avec diagramme de Gantt (Symfony + PostgreSQL)\n• Portfolio actuel (100 % vanilla, animations modernes, multilingue)\n• Tic Tac Toe avec IA\n• Planning de Travail Annuel (PTA)\n• Gestion de cotisations d’association\n• Intégration pixel-perfect PSD → Sass + jQuery\nTous les codes sont publics sur : github.com/maminirina593. Des projets impressionnants !",
 
-    "compétences|skills|techno|stack|langages|framework|base de données": "Maminirina maîtrise un stack très complet :\nFrontend : React, Vue.js, Bootstrap, Tailwind CSS\nBackend : PHP (Symfony, Laravel), Python (Django), Node.js + Express\nBases de données : MySQL, PostgreSQL, MongoDB\nLangages : JavaScript (ES6+), Java, HTML5, CSS3/Sass\nOutils : Git, GitHub, VS Code, Photoshop, Premiere Pro\nMéthodologies : UML, MERISE, Agile\nSoft skills : rigueur, autonomie, travail en équipe, apprentissage rapide.",
+    "cv|curriculum|resume|télécharger|pdf|telecharger|cv": "Vous pouvez télécharger son CV complet et à jour ici :\n→ cv/cv.pdf\nIl contient toutes ses expériences, formations, compétences et projets. Je vous le recommande vivement !",
 
-    "projet|projets|réalisation|portfolio|github|gstock|suivi|django|tictactoe|pta|cotisation|agency": "Maminirina a réalisé de nombreux projets de haut niveau :\n• Gestion de stock (PHP & Django + React)\n• Suivi de projets IT avec Gantt (Symfony + PostgreSQL)\n• Portfolio actuel (100 % vanilla, animations modernes, multilingue)\n• Tic Tac Toe avec IA\n• Planning de Travail Annuel (PTA)\n• Gestion de cotisations d’association\n• Intégration pixel-perfect PSD → Sass + jQuery\nTous les codes sont publics sur : github.com/maminirina593",
+    "disponible|stage|emploi|recrutement|embauche|cdi|alternance|pré-embauche|ouvert|libre|pret|disponibilité": "Oui, Maminirina est actuellement disponible immédiatement pour un stage de fin d’études (avec forte préférence pour une pré-embauche) ou un premier poste en CDI en tant que développeur fullstack/web. Il est très motivé et prêt à rejoindre une équipe dynamique ! Contactez-le vite.",
 
-    "cv|curriculum|resume|télécharger|pdf": "Vous pouvez télécharger son CV complet et à jour ici :\n→ cv/cv.pdf\nIl contient toutes ses expériences, formations, compétences et projets.",
+    "anglais|english|parle anglais|langue|anglais courant|langage": "Oui, Maminirina parle anglais couramment (niveau professionnel). Il a suivi une formation certifiée en anglais parlé et communique sans difficulté avec des équipes internationales. Parfait pour des projets globaux !",
 
-    "disponible|stage|emploi|recrutement|embauche|cdi|alternance|pré-embauche|ouvert": "Oui, Maminirina est actuellement disponible immédiatement pour un stage de fin d’études (avec forte préférence pour une pré-embauche) ou un premier poste en CDI en tant que développeur fullstack/web. Il est très motivé et prêt à rejoindre une équipe dynamique !",
+    "passion|hobby|loisir|temps libre|ce que tu aimes|passion": "En dehors du code, Maminirina est passionné par le design UI/UX, les animations web, le montage vidéo (Premiere Pro), la musique et le basketball. Il adore apprendre de nouvelles technologies et relever des défis techniques ! Un profil complet et équilibré.",
 
-    "anglais|english|parle anglais|langue": "Oui, Maminirina parle anglais couramment (niveau professionnel). Il a suivi une formation certifiée en anglais parlé et communique sans difficulté avec des équipes internationales.",
-
-    "passion|hobby|loisir|temps libre": "En dehors du code, Maminirina est passionné par le design UI/UX, les animations web, le montage vidéo (Premiere Pro), la musique et le basketball. Il adore apprendre de nouvelles technologies et relever des défis techniques !",
-
-    "merci|thanks|thank you|super|top|genial|parfait": "Je vous remercie sincèrement pour l’intérêt que vous portez au profil de Maminirina ! N’hésitez pas à me poser d’autres questions ou à le contacter directement. Je transmets tous vos messages avec plaisir. Excellente journée à vous !"
+    "merci|thanks|thank you|super|top|genial|parfait|bravo|excellent|merci beaucoup": "Je vous remercie sincèrement pour l’intérêt que vous portez au profil de Maminirina ! N’hésitez pas à me poser d’autres questions ou à le contacter directement. Je transmets tous vos messages avec plaisir. Excellente journée à vous ! 🌟"
   },
 
   "en": {
-    "default": "Thank you for your message. I’m here to introduce you to the full profile of Mr. RANDRIANIAINA Maminirina Jean Noël. Could you specify your question (experience, education, skills, projects, availability, contact…) so I can answer you accurately?",
-
-    "bonjour|salut|hello|hi|bonsoir|hey|cc": "Hello and welcome! I am Maminirina Bot, the virtual assistant of Maminirina Jean Noël RANDRIANIAINA, a passionate full-stack developer based in Antananarivo, Madagascar. How may I assist you today?",
-
-    "qui es-tu|who are you|who is maminirina": "I am Maminirina Bot, the dedicated AI assistant of Mr. RANDRIANIAINA Maminirina Jean Noël. I present his full profile and answer all questions about his background, skills, projects, and availability.",
-
-    "nom|name|age|old": "Mr. RANDRIANIAINA Maminirina Jean Noël is a talented 24-year-old full-stack developer from Antananarivo, Madagascar.",
-
-    "contact|phone|email|linkedin|github": "Here are his contact details:\n• Phone: +261 34 74 956 07 | +261 33 41 477 68\n• Email: maminirinajeannoel@gmail.com\n• LinkedIn: linkedin.com/in/jean-noel-maminirina\n• GitHub: github.com/maminirina593\nHe replies very quickly!",
-
-    "formation|education|studies|degree|master|license": "Currently pursuing a Master’s in Software Engineering at IS-INFO (2025–ongoing). Holds a Bachelor’s in Application Development (2022–2025) and earned the Fullstack Web Development Certificate (Node.js + React + MongoDB) from Orange Digital Center in September 2025.",
-
-    "expérience|experience|internship|job|dgi|tax": "Yes! 5-month internship (Jan–May 2025) at the General Directorate of Taxes (SSIF). Developed a full project management & tracking web app using Symfony 6, PostgreSQL, and Bootstrap.",
-
-    "compétences|skills|tech|stack": "Full-stack expertise:\nFrontend: React, Vue.js, Bootstrap, Tailwind\nBackend: PHP (Symfony/Laravel), Python (Django), Node.js + Express\nDatabases: MySQL, PostgreSQL, MongoDB\nTools: Git, GitHub, VS Code, Photoshop, Premiere Pro\nStrong soft skills: rigor, autonomy, teamwork, fast learner.",
-
-    "projet|projects|portfolio|github": "Notable projects:\n• Inventory management (PHP & Django + React)\n• IT project tracker with Gantt chart (Symfony)\n• This modern portfolio (vanilla JS, animations, multilingual)\n• Tic Tac Toe with AI\n• Annual Work Plan system\n• Association membership management\nAll open-source: github.com/maminirina593",
-
-    "cv|resume|download": "Download his latest CV here:\n→ cv/cv.pdf",
-
-    "disponible|available|job|internship|hiring": "Yes, Maminirina is immediately available for a final-year internship (preferably with pre-employment) or a full-time junior full-stack developer position. Highly motivated!",
-
-    "merci|thanks|thank you": "Thank you so much for your interest in Maminirina’s profile! Feel free to ask more or contact him directly. Have an excellent day!"
+    "default": "Thank you for your message. I’m here to introduce you to the full profile of Mr. RANDRIANIAINA Maminirina Jean Noël. Could you specify your question (experience, education, skills, projects, availability, contact…) so I can answer you accurately? I'm here to help with courtesy and precision!",
+    
+    "bonjour|salut|hello|hi|bonsoir|hey|cc|coucou|salutation|yo": "Hello and welcome! I am Maminirina Bot, the virtual assistant of Maminirina Jean Noël RANDRIANIAINA, a passionate full-stack developer based in Antananarivo, Madagascar. How may I assist you today? 😊",
+    
+    "qui es-tu|who are you|who is maminirina": "I am Maminirina Bot, the dedicated AI assistant of Mr. RANDRIANIAINA Maminirina Jean Noël. I present his full profile and answer all questions about his background, skills, projects, and availability with precision and courtesy.",
+    
+    "nom|name|age|old": "Mr. RANDRIANIAINA Maminirina Jean Noël is a talented 24-year-old full-stack developer from Antananarivo, Madagascar. He combines rigor, creativity, and passion for code. Happy to introduce him!",
+    
+    "contact|phone|email|linkedin|github": "Here are his professional contact details:\n• Phone: +261 34 74 956 07 | +261 33 41 477 68\n• Email: maminirinajeannoel@gmail.com\n• LinkedIn: linkedin.com/in/jean-noel-maminirina\n• GitHub: github.com/maminirina593\nHe replies very quickly! Feel free to reach out.",
+    
+    "formation|education|studies|degree|master|license": "Currently pursuing a Master’s in Software Engineering at IS-INFO Ampasamadinika (2025–ongoing). Holds a Bachelor’s in Application Development (2022–2025) and earned the Fullstack Web Development Certificate (Node.js + React + MongoDB) from Orange Digital Center in September 2025. A brilliant academic path!",
+    
+    "expérience|experience|internship|job|dgi|tax": "Yes! 5-month internship (Jan–May 2025) at the General Directorate of Taxes (SSIF). Developed a full project management & tracking web app using Symfony 6, PostgreSQL, and Bootstrap. A highly formative real-world experience. Well done!",
+    
+    "compétences|skills|tech|stack": "Maminirina masters a very complete stack:\n• Frontend: React, Vue.js, Bootstrap, Tailwind CSS, Sass\n• Backend: PHP (Symfony, Laravel), Python (Django), Node.js + Express\n• Databases: MySQL, PostgreSQL, MongoDB\n• Languages: JavaScript (ES6+), Java, HTML5, CSS3\n• Tools: Git, GitHub, VS Code, Photoshop, Premiere Pro\n• Methodologies: UML, MERISE, Agile\n• Soft skills: rigor, autonomy, teamwork, fast learning.\nHe's versatile and up-to-date on trends!",
+    
+    "projet|projects|portfolio|github": "Maminirina has completed many high-level projects:\n• Advanced inventory management (PHP & Django + React)\n• IT project tracker with Gantt chart (Symfony + PostgreSQL)\n• This modern portfolio (vanilla JS, animations, multilingual)\n• Tic Tac Toe with AI\n• Annual Work Plan system (PTA)\n• Association membership management\n• Pixel-perfect PSD integration → Sass + jQuery\nAll open-source: github.com/maminirina593. Impressive work!",
+    
+    "cv|resume|download": "Download his latest CV here:\n→ cv/cv.pdf\nIt contains all his experiences, education, skills, and projects. I highly recommend it!",
+    
+    "disponible|available|job|internship|hiring": "Yes, Maminirina is immediately available for a final-year internship (preferably with pre-employment) or a full-time junior full-stack developer position. He's highly motivated and ready to join a dynamic team! Contact him soon.",
+    
+    "merci|thanks|thank you": "Thank you so much for your interest in Maminirina’s profile! Feel free to ask more or contact him directly. Have an excellent day! 🌟"
   }
 }

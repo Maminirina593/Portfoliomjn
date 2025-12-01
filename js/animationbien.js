@@ -12,7 +12,7 @@ glow.style.cssText = `
   position: fixed;
   top: -150px; left: -150px;
   width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(138, 43, 226, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(133, 82, 180, 0.25) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
@@ -25,8 +25,8 @@ document.body.appendChild(glow);
 function initParticles() {
     const isDark = document.body.classList.contains("dark");
     const width = window.innerWidth;
-    isMobile = width <= 768;
-    const isSmall = width <= 480;
+    isMobile = width <= 550;
+    const isSmall = width <= 470;
 
     const config = {
         particles: {
@@ -109,20 +109,20 @@ function animateCanvas() {
     const speedFactor = Math.min(Math.sqrt(velocityX * velocityX + velocityY * velocityY) / 10, 3);
 
     // Effet 3D + vibration subtile quand tu bouges vite
-    const rotateY = (currentX / window.innerWidth) * 12 - 6;
-    const rotateX = -(currentY / window.innerHeight) * 12 + 6;
+    const rotateY = (currentX / window.innerWidth) * 10 - 5;
+    const rotateX = -(currentY / window.innerHeight) * 10 + 5;
 
     canvas.style.transform = `
         perspective(1200px)
         rotateY(${rotateY * intensity}deg)
         rotateX(${rotateX * intensity}deg)
-        translate(${currentX * 0.03}px, ${currentY * 0.03}px)
-        scale(${1 + (speedFactor * 0.008)})
+        translate(${currentX * 0.02}px, ${currentY * 0.02}px)
+        scale(${1 + (speedFactor * 0.006)})
     `;
 
     // Glow suit la souris
     if (!isMobile) {
-        glow.style.transform = `translate(${mouseX - 110}px, ${mouseY - 120}px)`;
+        glow.style.transform = `translate(${mouseX - 100}px, ${mouseY - 100}px)`;
     }
 
     requestAnimationFrame(animateCanvas);
