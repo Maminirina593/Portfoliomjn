@@ -277,8 +277,8 @@
   
   /* 3. Fenêtre du Chat (Pleine écran sur mobile) */
   #chatbot-window {
-      width: 80vw;
-      height: 80dvh; 
+      width: 100vw;
+      height: 100dvh; 
       top: 0;
       left: 0;
       right: 0;
