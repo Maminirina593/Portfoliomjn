@@ -4,7 +4,7 @@ let mouseX = 0, mouseY = 0;
 let currentX = 0, currentY = 0;
 let velocityX = 0, velocityY = 0;
 const canvas = document.getElementById("particles-js");
-let isMobile = window.innerWidth <= 768;
+let isMobile = window.innerWidth <= 668;
 
 // === GLOW DYNAMIQUE QUI SUIT LA SOURIS ===
 const glow = document.createElement("div");
@@ -25,12 +25,12 @@ document.body.appendChild(glow);
 function initParticles() {
     const isDark = document.body.classList.contains("dark");
     const width = window.innerWidth;
-    isMobile = width <= 550;
-    const isSmall = width <= 470;
+    isMobile = width <= 500;
+    const isSmall = width <= 450;
 
     const config = {
         particles: {
-            number: { value: isSmall ? 40 : isMobile ? 60 : 110 },
+            number: { value: isSmall ? 40 : isMobile ? 60 : 100 },
             color: {
                 value: isDark
                     ? ["#ff00ff", "#ff3399", "#cc00ff", "#e040fb", "#d500f9", "#9c27b0"]
@@ -53,7 +53,7 @@ function initParticles() {
                 random: true,
                 straight: false,
                 out_mode: "bounce",
-                attract: { enable: true, rotateX: 600, rotateY: 1200 }
+                attract: { enable: true, rotateX: 550, rotateY: 1100 }
             }
         },
         interactivity: {
@@ -63,7 +63,7 @@ function initParticles() {
                 resize: true
             },
             modes: {
-                bubble: { distance: 200, size: 18, duration: 1.5, opacity: 0.9 },
+                bubble: { distance: 200, size: 16, duration: 1.5, opacity: 0.8 },
                 repulse: { distance: 180, duration: 0.8 }
             }
         },
