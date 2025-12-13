@@ -123,7 +123,7 @@ const translations = {
 
         // FOOTER
         "footer.copyright": "© <span id=\"currentYear\"></span> <strong>Maminirina Jean Noël</strong>. All rights reserved.",
-        "footer.made": "Made with <i class=\"fas fa-heart\"></i> and <i class=\"fas fa-code\"></i> by <strong>Maminirina</strong>",
+        "footer.made": "Made with <i class=\"fas fa-heart\"></i> and <i class=\"fas fa-code\"></i> by <strong>Maminirina Jean Noël</strong>",
 
         // CV BUTTON
         "cv.download": "Download my CV"
